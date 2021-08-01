@@ -1,0 +1,734 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27002D552611EBA000DDF0C5 /* checklistData.json in Resources */ = {isa = PBXBuildFile; fileRef = 27002D542611EBA000DDF0C5 /* checklistData.json */; };
+		27002D5D2611F66600DDF0C5 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D5C2611F66600DDF0C5 /* Checkmark.swift */; };
+		27002D622611F7E500DDF0C5 /* ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D612611F7E500DDF0C5 /* ChecklistRow.swift */; };
+		27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D662611F92200DDF0C5 /* HeaderView.swift */; };
+		27002D742612104400DDF0C5 /* TripSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D732612104400DDF0C5 /* TripSection.swift */; };
+		27002D79261211BB00DDF0C5 /* AddTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D78261211BB00DDF0C5 /* AddTrip.swift */; };
+		27002D7E26134A2300DDF0C5 /* TripHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D7D26134A2300DDF0C5 /* TripHistory.swift */; };
+		27002D8326134E9D00DDF0C5 /* TripRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D8226134E9D00DDF0C5 /* TripRow.swift */; };
+		270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */; };
+		2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2720D05A26B5B62B00320274 /* StickyHeader.swift */; };
+		272FB2362619E129001FB6DC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FB2352619E129001FB6DC /* DetailView.swift */; };
+		2751F9EF262EEB2800A5F10B /* EditTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751F9EE262EEB2800A5F10B /* EditTrip.swift */; };
+		27642DFC26ADA86300135DD1 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27642DFB26ADA86300135DD1 /* NavigationBarModifier.swift */; };
+		2775C1C326A7881C009A5B00 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775C1C226A7881C009A5B00 /* SideMenuView.swift */; };
+		2775C1C526A78EE6009A5B00 /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775C1C426A78EE6009A5B00 /* MenuRow.swift */; };
+		2783316226111D2E009E98F0 /* RvChecklistCDiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783316126111D2E009E98F0 /* RvChecklistCDiApp.swift */; };
+		2783316426111D2E009E98F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783316326111D2E009E98F0 /* ContentView.swift */; };
+		2783316626111D2F009E98F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2783316526111D2F009E98F0 /* Assets.xcassets */; };
+		2783316926111D2F009E98F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2783316826111D2F009E98F0 /* Preview Assets.xcassets */; };
+		2783316B26111D2F009E98F0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783316A26111D2F009E98F0 /* Persistence.swift */; };
+		2783316E26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */; };
+		2783317926111D2F009E98F0 /* RvChecklistCDiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783317826111D2F009E98F0 /* RvChecklistCDiTests.swift */; };
+		2783318426111D2F009E98F0 /* RvChecklistCDiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */; };
+		2783319A2611205E009E98F0 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331962611205E009E98F0 /* Trip+CoreDataClass.swift */; };
+		2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */; };
+		2783319C2611205E009E98F0 /* ChecklistItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */; };
+		2783319D2611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */; };
+		278331AA26112228009E98F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278331A926112228009E98F0 /* CloudKit.framework */; };
+		27B76A462629B26800E1DCDB /* ChecklistSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B76A452629B26800E1DCDB /* ChecklistSection.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2783317526111D2F009E98F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2783315626111D2E009E98F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2783315D26111D2E009E98F0;
+			remoteInfo = RvTrips;
+		};
+		2783318026111D2F009E98F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2783315626111D2E009E98F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2783315D26111D2E009E98F0;
+			remoteInfo = RvTrips;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27002D542611EBA000DDF0C5 /* checklistData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklistData.json; sourceTree = "<group>"; };
+		27002D5C2611F66600DDF0C5 /* Checkmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
+		27002D612611F7E500DDF0C5 /* ChecklistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistRow.swift; sourceTree = "<group>"; };
+		27002D662611F92200DDF0C5 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		27002D732612104400DDF0C5 /* TripSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSection.swift; sourceTree = "<group>"; };
+		27002D78261211BB00DDF0C5 /* AddTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrip.swift; sourceTree = "<group>"; };
+		27002D7D26134A2300DDF0C5 /* TripHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHistory.swift; sourceTree = "<group>"; };
+		27002D8226134E9D00DDF0C5 /* TripRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRow.swift; sourceTree = "<group>"; };
+		270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerRemoveBackText.swift; sourceTree = "<group>"; };
+		2720D05A26B5B62B00320274 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
+		272FB2352619E129001FB6DC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		2751F9EE262EEB2800A5F10B /* EditTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrip.swift; sourceTree = "<group>"; };
+		27642DFB26ADA86300135DD1 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		2775C1C226A7881C009A5B00 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		2775C1C426A78EE6009A5B00 /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
+		2783315E26111D2E009E98F0 /* RvChecklistCDi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RvChecklistCDi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2783316126111D2E009E98F0 /* RvChecklistCDiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistCDiApp.swift; sourceTree = "<group>"; };
+		2783316326111D2E009E98F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2783316526111D2F009E98F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2783316826111D2F009E98F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2783316A26111D2F009E98F0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		2783316D26111D2F009E98F0 /* RvTrips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RvTrips.xcdatamodel; sourceTree = "<group>"; };
+		2783316F26111D2F009E98F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2783317426111D2F009E98F0 /* RvChecklistCDiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RvChecklistCDiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2783317826111D2F009E98F0 /* RvChecklistCDiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistCDiTests.swift; sourceTree = "<group>"; };
+		2783317A26111D2F009E98F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2783317F26111D2F009E98F0 /* RvChecklistCDiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RvChecklistCDiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistCDiUITests.swift; sourceTree = "<group>"; };
+		2783318526111D2F009E98F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		278331962611205E009E98F0 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		278331A426112222009E98F0 /* RvChecklistCDi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RvChecklistCDi.entitlements; sourceTree = "<group>"; };
+		278331A926112228009E98F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		27B76A452629B26800E1DCDB /* ChecklistSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistSection.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2783315B26111D2E009E98F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278331AA26112228009E98F0 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2783317126111D2F009E98F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2783317C26111D2F009E98F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27642DFA26ADA82E00135DD1 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				27642DFB26ADA86300135DD1 /* NavigationBarModifier.swift */,
+				270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		2783315526111D2E009E98F0 = {
+			isa = PBXGroup;
+			children = (
+				2783316026111D2E009E98F0 /* RvChecklistCDi */,
+				2783317726111D2F009E98F0 /* RvChecklistCDiTests */,
+				2783318226111D2F009E98F0 /* RvChecklistCDiUITests */,
+				2783315F26111D2E009E98F0 /* Products */,
+				278331A826112228009E98F0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2783315F26111D2E009E98F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2783315E26111D2E009E98F0 /* RvChecklistCDi.app */,
+				2783317426111D2F009E98F0 /* RvChecklistCDiTests.xctest */,
+				2783317F26111D2F009E98F0 /* RvChecklistCDiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2783316026111D2E009E98F0 /* RvChecklistCDi */ = {
+			isa = PBXGroup;
+			children = (
+				278331A426112222009E98F0 /* RvChecklistCDi.entitlements */,
+				2783316126111D2E009E98F0 /* RvChecklistCDiApp.swift */,
+				2783319426111D95009E98F0 /* Model */,
+				278331AB2611400B009E98F0 /* Views */,
+				27642DFA26ADA82E00135DD1 /* Modifiers */,
+				278331AC26114030009E98F0 /* Resources */,
+				2783316726111D2F009E98F0 /* Preview Content */,
+			);
+			path = RvChecklistCDi;
+			sourceTree = "<group>";
+		};
+		2783316726111D2F009E98F0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2783316826111D2F009E98F0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2783317726111D2F009E98F0 /* RvChecklistCDiTests */ = {
+			isa = PBXGroup;
+			children = (
+				2783317826111D2F009E98F0 /* RvChecklistCDiTests.swift */,
+				2783317A26111D2F009E98F0 /* Info.plist */,
+			);
+			path = RvChecklistCDiTests;
+			sourceTree = "<group>";
+		};
+		2783318226111D2F009E98F0 /* RvChecklistCDiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */,
+				2783318526111D2F009E98F0 /* Info.plist */,
+			);
+			path = RvChecklistCDiUITests;
+			sourceTree = "<group>";
+		};
+		2783319426111D95009E98F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2783316A26111D2F009E98F0 /* Persistence.swift */,
+				2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */,
+				278331962611205E009E98F0 /* Trip+CoreDataClass.swift */,
+				278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */,
+				278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */,
+				278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */,
+				27002D542611EBA000DDF0C5 /* checklistData.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		278331A826112228009E98F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				278331A926112228009E98F0 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		278331AB2611400B009E98F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2783316326111D2E009E98F0 /* ContentView.swift */,
+				27002D662611F92200DDF0C5 /* HeaderView.swift */,
+				27B76A452629B26800E1DCDB /* ChecklistSection.swift */,
+				27002D612611F7E500DDF0C5 /* ChecklistRow.swift */,
+				27002D5C2611F66600DDF0C5 /* Checkmark.swift */,
+				27002D732612104400DDF0C5 /* TripSection.swift */,
+				27002D78261211BB00DDF0C5 /* AddTrip.swift */,
+				27002D7D26134A2300DDF0C5 /* TripHistory.swift */,
+				27002D8226134E9D00DDF0C5 /* TripRow.swift */,
+				272FB2352619E129001FB6DC /* DetailView.swift */,
+				2751F9EE262EEB2800A5F10B /* EditTrip.swift */,
+				2775C1C226A7881C009A5B00 /* SideMenuView.swift */,
+				2775C1C426A78EE6009A5B00 /* MenuRow.swift */,
+				2720D05A26B5B62B00320274 /* StickyHeader.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		278331AC26114030009E98F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2783316526111D2F009E98F0 /* Assets.xcassets */,
+				2783316F26111D2F009E98F0 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2783315D26111D2E009E98F0 /* RvChecklistCDi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2783318826111D2F009E98F0 /* Build configuration list for PBXNativeTarget "RvChecklistCDi" */;
+			buildPhases = (
+				2783315A26111D2E009E98F0 /* Sources */,
+				2783315B26111D2E009E98F0 /* Frameworks */,
+				2783315C26111D2E009E98F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RvChecklistCDi;
+			productName = RvTrips;
+			productReference = 2783315E26111D2E009E98F0 /* RvChecklistCDi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2783317326111D2F009E98F0 /* RvChecklistCDiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2783318B26111D2F009E98F0 /* Build configuration list for PBXNativeTarget "RvChecklistCDiTests" */;
+			buildPhases = (
+				2783317026111D2F009E98F0 /* Sources */,
+				2783317126111D2F009E98F0 /* Frameworks */,
+				2783317226111D2F009E98F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2783317626111D2F009E98F0 /* PBXTargetDependency */,
+			);
+			name = RvChecklistCDiTests;
+			productName = RvTripsTests;
+			productReference = 2783317426111D2F009E98F0 /* RvChecklistCDiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2783317E26111D2F009E98F0 /* RvChecklistCDiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2783318E26111D2F009E98F0 /* Build configuration list for PBXNativeTarget "RvChecklistCDiUITests" */;
+			buildPhases = (
+				2783317B26111D2F009E98F0 /* Sources */,
+				2783317C26111D2F009E98F0 /* Frameworks */,
+				2783317D26111D2F009E98F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2783318126111D2F009E98F0 /* PBXTargetDependency */,
+			);
+			name = RvChecklistCDiUITests;
+			productName = RvTripsUITests;
+			productReference = 2783317F26111D2F009E98F0 /* RvChecklistCDiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2783315626111D2E009E98F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					2783315D26111D2E009E98F0 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					2783317326111D2F009E98F0 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 2783315D26111D2E009E98F0;
+					};
+					2783317E26111D2F009E98F0 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 2783315D26111D2E009E98F0;
+					};
+				};
+			};
+			buildConfigurationList = 2783315926111D2E009E98F0 /* Build configuration list for PBXProject "RvChecklistCDi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2783315526111D2E009E98F0;
+			productRefGroup = 2783315F26111D2E009E98F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2783315D26111D2E009E98F0 /* RvChecklistCDi */,
+				2783317326111D2F009E98F0 /* RvChecklistCDiTests */,
+				2783317E26111D2F009E98F0 /* RvChecklistCDiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2783315C26111D2E009E98F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2783316926111D2F009E98F0 /* Preview Assets.xcassets in Resources */,
+				27002D552611EBA000DDF0C5 /* checklistData.json in Resources */,
+				2783316626111D2F009E98F0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2783317226111D2F009E98F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2783317D26111D2F009E98F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2783315A26111D2E009E98F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27002D742612104400DDF0C5 /* TripSection.swift in Sources */,
+				270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */,
+				2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */,
+				2775C1C326A7881C009A5B00 /* SideMenuView.swift in Sources */,
+				27002D79261211BB00DDF0C5 /* AddTrip.swift in Sources */,
+				27002D622611F7E500DDF0C5 /* ChecklistRow.swift in Sources */,
+				2783316B26111D2F009E98F0 /* Persistence.swift in Sources */,
+				2783316426111D2E009E98F0 /* ContentView.swift in Sources */,
+				2783316E26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld in Sources */,
+				27642DFC26ADA86300135DD1 /* NavigationBarModifier.swift in Sources */,
+				2775C1C526A78EE6009A5B00 /* MenuRow.swift in Sources */,
+				27002D7E26134A2300DDF0C5 /* TripHistory.swift in Sources */,
+				27002D8326134E9D00DDF0C5 /* TripRow.swift in Sources */,
+				272FB2362619E129001FB6DC /* DetailView.swift in Sources */,
+				2751F9EF262EEB2800A5F10B /* EditTrip.swift in Sources */,
+				2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */,
+				2783316226111D2E009E98F0 /* RvChecklistCDiApp.swift in Sources */,
+				2783319D2611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift in Sources */,
+				27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */,
+				27B76A462629B26800E1DCDB /* ChecklistSection.swift in Sources */,
+				27002D5D2611F66600DDF0C5 /* Checkmark.swift in Sources */,
+				2783319A2611205E009E98F0 /* Trip+CoreDataClass.swift in Sources */,
+				2783319C2611205E009E98F0 /* ChecklistItem+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2783317026111D2F009E98F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2783317926111D2F009E98F0 /* RvChecklistCDiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2783317B26111D2F009E98F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2783318426111D2F009E98F0 /* RvChecklistCDiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2783317626111D2F009E98F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2783315D26111D2E009E98F0 /* RvChecklistCDi */;
+			targetProxy = 2783317526111D2F009E98F0 /* PBXContainerItemProxy */;
+		};
+		2783318126111D2F009E98F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2783315D26111D2E009E98F0 /* RvChecklistCDi */;
+			targetProxy = 2783318026111D2F009E98F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2783318626111D2F009E98F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2783318726111D2F009E98F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2783318926111D2F009E98F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RvChecklistCDi/RvChecklistCDi.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RvChecklistCDi/Preview Content\"";
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RvChecklistCDi/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistCDi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2783318A26111D2F009E98F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RvChecklistCDi/RvChecklistCDi.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RvChecklistCDi/Preview Content\"";
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RvChecklistCDi/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistCDi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2783318C26111D2F009E98F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				INFOPLIST_FILE = RvChecklistCDiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistCDiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RvChecklistCDi.app/RvChecklistCDi";
+			};
+			name = Debug;
+		};
+		2783318D26111D2F009E98F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				INFOPLIST_FILE = RvChecklistCDiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistCDiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RvChecklistCDi.app/RvChecklistCDi";
+			};
+			name = Release;
+		};
+		2783318F26111D2F009E98F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				INFOPLIST_FILE = RvChecklistCDiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistCDiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RvChecklistCDi;
+			};
+			name = Debug;
+		};
+		2783319026111D2F009E98F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				INFOPLIST_FILE = RvChecklistCDiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistCDiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RvChecklistCDi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2783315926111D2E009E98F0 /* Build configuration list for PBXProject "RvChecklistCDi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2783318626111D2F009E98F0 /* Debug */,
+				2783318726111D2F009E98F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2783318826111D2F009E98F0 /* Build configuration list for PBXNativeTarget "RvChecklistCDi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2783318926111D2F009E98F0 /* Debug */,
+				2783318A26111D2F009E98F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2783318B26111D2F009E98F0 /* Build configuration list for PBXNativeTarget "RvChecklistCDiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2783318C26111D2F009E98F0 /* Debug */,
+				2783318D26111D2F009E98F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2783318E26111D2F009E98F0 /* Build configuration list for PBXNativeTarget "RvChecklistCDiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2783318F26111D2F009E98F0 /* Debug */,
+				2783319026111D2F009E98F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2783316D26111D2F009E98F0 /* RvTrips.xcdatamodel */,
+			);
+			currentVersion = 2783316D26111D2F009E98F0 /* RvTrips.xcdatamodel */;
+			path = RvChecklistCDi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2783315626111D2E009E98F0 /* Project object */;
+}

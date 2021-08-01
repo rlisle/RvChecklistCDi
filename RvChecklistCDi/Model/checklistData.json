@@ -1,0 +1,350 @@
+[
+    {
+        "title": "Start Checklist",
+        "category": "Pre-Trip",
+        "sequence": 1010,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Start a new checklist"
+    },
+    {
+        "title": "Tire Pressures",
+        "category": "Pre-Trip",
+        "sequence": 1020,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "# Check all tire pressures\n* Truck front: **80** psi\n* Truck rear: **65** psi\n* RV **110** psi"
+    },
+    {
+        "title": "Dump Tanks",
+        "category": "Pre-Trip",
+        "sequence": 1030,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Dump both black and gray tanks"
+    },
+    {
+        "title": "Fill Water Tank",
+        "category": "Pre-Trip",
+        "sequence": 1040,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Fill fresh water tank appropriately"
+    },
+    {
+        "title": "Fill-up Fuel Tanks",
+        "category": "Pre-Trip",
+        "sequence": 1050,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Calculate amount of fuel needed, and fill tanks appropriately.\nFor shorter trips, get enough for entire trip.\nFor example:\n* Inks Lake is 68 miles.\n* Figure 7.5 if hilly, or 9-11 if < 65 mph.\n* Main tank is 50 gallons\n* Aux tank about 50 more\n* So fill main tank if entire trip < 500 miles.\n* Fill aux also if < 1000 miles."
+    },
+    {
+        "title": "Inspect Roof",
+        "category": "Pre-Trip",
+        "sequence": 1060,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Ensure everything on roof looks ok. Check for leaks, cracks or other damage"
+    },
+    {
+        "title": "Inspect Under RV",
+        "category": "Pre-Trip",
+        "sequence": 1070,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Ensure everything under RV looks ok. Check for leaks, and verify flaps under RV not coming loose."
+    },
+    {
+        "title": "Plan Route",
+        "category": "Pre-Trip",
+        "sequence": 1080,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Plan route for the trip.\n\nUse RV Trip Wizard to identify rest stops about every hour, with longer stops every 2 hours.\n\nIdentify fuel requirements."
+    },
+    
+    
+    {
+        "title": "Move Deck Furniture",
+        "category": "Departure",
+        "sequence": 2010,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Remove furniture from ramp deck and fold up and strap to loft ladder."
+    },
+    {
+        "title": "Roll Up Deck Rug",
+        "category": "Departure",
+        "sequence": 2013,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Roll up the ramp deck rug and put inside office. "
+    },
+
+    {
+        "title": "Strap TV to Wall",
+        "category": "Departure",
+        "sequence": 2015,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Connect the strap across the face of the TV. Insert a stuffed toy between the strap and the screen to protect it from being scratched during travel."
+    },
+    {
+        "title": "Move Bricks under Shelley's Recliner",
+        "category": "Departure",
+        "sequence": 2020,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Move the bricks under Shelley's recliner before bringing in slides to avoid scratching floor."
+    },
+    {
+        "title": "Retract Bedroom Slide",
+        "category": "Departure",
+        "sequence": 2030,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Retrack the bedroom slide. Switch is located on front panel"
+    },
+    {
+        "title": "Retract Main Slides",
+        "category": "Departure",
+        "sequence": 2040,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Retrack the living room slides. Switch is located on front panel"
+    },
+    {
+        "title": "Retract Ramp Awning",
+        "category": "Departure",
+        "sequence": 2050,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Disconnect ramp awning arms and slide into end rail. Retrack the ramp awning. Switch is located on rear panel"
+    },
+    {
+        "title": "Close Ramp",
+        "category": "Departure",
+        "sequence": 2060,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Remove all furniture on the ramp deck. Roll up carpet. Raise and latch ramp."
+    },
+    {
+        "title": "Latch Door Handles",
+        "category": "Departure",
+        "sequence": 2070,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Close both door handles so they cover door to prevent accidental opening during travel."
+    },
+    {
+        "title": "Retract Rear Awning",
+        "category": "Departure",
+        "sequence": 2080,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Retract the rear awning. The switch is located on the rear panel."
+    },
+    {
+        "title": "Retract Front Awning",
+        "category": "Departure",
+        "sequence": 2090,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Retract the front awning. Switch is located on front panel"
+    },
+    {
+        "title": "Disconnect Propane",
+        "category": "Departure",
+        "sequence": 2100,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Turn off and disconnect big propane tank.\n\nTurn off 30 lb tanks while travelling."
+    },
+    {
+        "title": "Turn Off Water Heater",
+        "category": "Departure",
+        "sequence": 2110,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Turn off both propane and electric water heater switches.\n\nSwitches are located on the front panel."
+    },
+    {
+        "title": "Turn On Inverter",
+        "category": "Departure",
+        "sequence": 2115,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Ensure that power inverter is turned on.\nSwitch is located beside fireplace below front panel."
+    },
+    {
+        "title": "Connect Truck",
+        "category": "Departure",
+        "sequence": 2120,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Hitch up trailer to truck.\n1. Drop tailgate\n2. Release 5th wheel hitch handle\n3. Back in truck until kingpin close to hitch\n4. Raise landing gear until truck and trailer at same height (-1/2 inch)\n5. Backup truck until hitch latches\n6. Insert pin to lock hitch\n7. Connect trailer electrical cable to side connector inside bed\n8. Connect safety wire to hitch handle\n9. Rock truck to ensure good latching"
+    },
+    {
+        "title": "Raise Landing Gear and Level Up",
+        "category": "Departure",
+        "sequence": 2130,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Raise the Level-Up and front landing gear.\nLevel-up control is in the basement.\nSelect manual, then retract."
+    },
+    {
+        "title": "Disconnect Shore Power",
+        "category": "Departure",
+        "sequence": 2140,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Disconnect A/C power cable, and stow away in box in back of truck"
+    },
+
+    
+    
+    {
+        "title": "Connect Shore Power",
+        "category": "Arrival",
+        "sequence": 3010,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Connect A/C power cable from cable in box in back of truck"
+    },
+    {
+        "title": "Lower Landing Gear",
+        "category": "Arrival",
+        "sequence": 3020,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Position pads under landing gear. Then lower landing gear until kingpin just begins to lift off of the hitch. Switch is located outside the RV on the leading wall under the kingpin."
+    },
+    {
+        "title": "Extend Bedroom Slide",
+        "category": "Arrival",
+        "sequence": 3030,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Extend the bedroom slide.\nSwitch is located on front panel.\nCheck to ensure nothing has fallen between the slide edges and walls."
+    },
+    {
+        "title": "Extend Main Slides",
+        "category": "Arrival",
+        "sequence": 3040,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Extend the living room slides.\nSwitch is located on front panel.\nCheck to ensure nothing has fallen between the slide edges and walls."
+    },
+    {
+        "title": "Open Ramp",
+        "category": "Arrival",
+        "sequence": 3050,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Restore ramp patio.\n1. Lower ramp\n1. Setup railingsn1. Replace carpet</li><li>Replace all furniture on the ramp deck"
+    },
+    {
+        "title": "Extend Ramp Awning",
+        "category": "Arrival",
+        "sequence": 3060,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Extend ramp awning and reconnect ramp awning arms.\nSwitch is located on rear panel"
+    },
+    {
+        "title": "Restore Door Steps and Handles",
+        "category": "Arrival",
+        "sequence": 3070,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Open both door handles and lower steps."
+    },
+    {
+        "title": "Extend Rear Awning",
+        "category": "Arrival",
+        "sequence": 3080,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Extend the rear awning. The switch is located on the rear panel."
+    },
+    {
+        "title": "Extend Front Awning",
+        "category": "Arrival",
+        "sequence": 3090,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Extend the front awning. Switch is located on front panel"
+    },
+    {
+        "title": "Turn on Propane",
+        "category": "Arrival",
+        "sequence": 3100,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Turn on 30 lb tanks."
+    },
+    {
+        "title": "Turn On Water Heater",
+        "category": "Arrival",
+        "sequence": 3110,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Turn on electric water heater if shore power is available. Otherwise turn on propane water heater switch.\nSwitches are located on the front panel."
+    },
+    {
+        "title": "Connect Water Hose",
+        "category": "Arrival",
+        "sequence": 3120,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Connect and turn on water hose."
+    },
+    {
+        "title": "Connect Sewer Hose",
+        "category": "Arrival",
+        "sequence": 3130,
+        "isDone": false,
+        "timestamp": "2021-04-01T00:00:00+00:00",
+        "imageName": "placeholder",
+        "instructions": "Optionally, connected sewer hose to 1 or both sewer fittings.\nFor shorter stays, may skip this, or just connect the front to allow showers."
+    }
+]
