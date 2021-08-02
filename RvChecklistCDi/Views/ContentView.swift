@@ -11,15 +11,9 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State var selectedTrip: Trip?
     @State private var showCompleted = false
     @State var showMenu = false
     @State private var menuSelection: String? = nil
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Trip.date, ascending: false)],
-        animation: .default)
-    private var trips: FetchedResults<Trip>
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
@@ -38,18 +32,13 @@ struct ContentView: View {
         
         
         return NavigationView {
-
             
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     VStack {
                         Group {
                             // Side menu selected destinations
-                            NavigationLink(destination: AddTrip(selectedTrip: $selectedTrip), tag: "Add",
-                                           selection: $menuSelection,
-                                           label: { EmptyView() })
-                            NavigationLink(destination: EditTrip(trip: $selectedTrip),
-                                           tag: "Edit",
+                            NavigationLink(destination: AddItem(), tag: "Add",
                                            selection: $menuSelection,
                                            label: { EmptyView() })
                         }
@@ -58,7 +47,7 @@ struct ContentView: View {
                         HeaderView()
                         // Maybe user LazyVStack instead?
                         List {
-                            TripSection(selectedTrip: $selectedTrip)
+//                            TripSection(selectedTrip: $selectedTrip)
                             
                             ChecklistSection(name: "Pre-Trip",
                                              heading: sectionText("Pre-Trip"),
@@ -78,7 +67,7 @@ struct ContentView: View {
                         }
                         .listStyle(GroupedListStyle())
                         .animation(.easeInOut)
-                        .overlay(items.isEmpty ? Text("Create a trip first") : nil, alignment: .center)
+//                        .overlay(items.isEmpty ? Text("Create a trip first") : nil, alignment: .center)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .offset(x: self.showMenu ? geometry.size.width/2 : 0)
@@ -87,8 +76,7 @@ struct ContentView: View {
                     if self.showMenu {
                         MenuView(showMenu: $showMenu,
                                  showCompleted: $showCompleted,
-                                 selection: $menuSelection,
-                                 selectedTrip: selectedTrip)
+                                 selection: $menuSelection)
                             .frame(width: geometry.size.width/2)
                             .transition(.move(edge: .leading))
                     }
@@ -110,20 +98,12 @@ struct ContentView: View {
             }
         }
         .accentColor( .black)   // Sets back button color
-        .onAppear {
-            //TODO: maybe run instead when trips change?
-            selectedTrip = nextTrip()
-        }
+//        .onAppear {
+//            //TODO: maybe run instead when trips change?
+//            selectedTrip = nextTrip()
+//        }
     }
     
-//    private func done(_ list: [ChecklistItem]) -> [ChecklistItem] {
-//        return list.filter { $0.isDone == true }
-//    }
-//
-//    private func todo(_ list: [ChecklistItem]) -> [ChecklistItem] {
-//        return list.filter { $0.isDone == false }
-//    }
-
     private func sectionText(_ section: String) -> Text {
         let doneCount = items.filter { $0.category == section && $0.isDone == true }.count
         let sectionCount = items.filter {
@@ -133,23 +113,23 @@ struct ContentView: View {
         return Text("\(section) (\(doneCount) of \(sectionCount) items done)")
     }
     
-    private func nextTrip() -> Trip? {
-        var upcoming: Trip? = nil
-        let today = Date()  //TODO: set to today's date at 00:00.000
-        print("Calculating next trip. Today is \(today)")
-        for trip in trips {
-            if(trip.wrappedDate >= today && (upcoming == nil || trip.wrappedDate < upcoming!.wrappedDate)) {
-                print("Selecting \(trip.wrappedDestination)")
-                upcoming = trip
-            }
-        }
-        // If there are no upcoming trips, then select the last trip
-        if(upcoming == nil) {
-            print("No upcoming trips, selecting last")
-            upcoming = trips.last
-        }
-        return upcoming
-    }
+//    private func nextTrip() -> Trip? {
+//        var upcoming: Trip? = nil
+//        let today = Date()  //TODO: set to today's date at 00:00.000
+//        print("Calculating next trip. Today is \(today)")
+//        for trip in trips {
+//            if(trip.wrappedDate >= today && (upcoming == nil || trip.wrappedDate < upcoming!.wrappedDate)) {
+//                print("Selecting \(trip.wrappedDestination)")
+//                upcoming = trip
+//            }
+//        }
+//        // If there are no upcoming trips, then select the last trip
+//        if(upcoming == nil) {
+//            print("No upcoming trips, selecting last")
+//            upcoming = trips.last
+//        }
+//        return upcoming
+//    }
     
 //    private func clearChecklist() {
 //        do {

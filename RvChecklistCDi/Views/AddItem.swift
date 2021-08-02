@@ -1,15 +1,14 @@
 //
-//  AddTrip.swift
-//  RvChecklist
+//  AddItem.swift
+//  RvChecklistCDi
 //
 //  Created by Ron Lisle on 3/13/21.
 //
 
 import SwiftUI
-import MapKit
 
-struct AddTrip: View {
-    static let DefaultDestination = "New Trip"
+struct AddItem: View {
+    let defaultTitle = "New TODO"
 
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -18,39 +17,36 @@ struct AddTrip: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
     private var checklistItems: FetchedResults<ChecklistItem>
 
-    @Binding var selectedTrip: Trip?
+    @Binding var selectedItem: ChecklistItem?
     
-    @State private var destination = ""
+    @State private var title = ""
     @State private var date = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!
-//    @State var lengthOfStay: Int
-//    @State var coordinate: CLLocationCoordinate2D
     
     var body: some View {
         Form {
-            Section(header: Text("Destination")) {
-                TextField("Destination", text: $destination)
-            }
-            Section {
-                DatePicker(
-                    selection: $date,
-                    displayedComponents: .date) { Text("Date").foregroundColor(Color(.gray)) }
-            }
+//            Section(header: Text("Destination")) {
+//                TextField("Destination", text: $destination)
+//            }
+//            Section {
+//                DatePicker(
+//                    selection: $date,
+//                    displayedComponents: .date) { Text("Date").foregroundColor(Color(.gray)) }
+//            }
 //                Section(header: Text("Length of Stay")) {
 //                    TextField("Length of Stay", text: $lengthOfStay)
 //                }
-            //TODO: Coordinate?
             Section {
                 HStack {
                     Spacer()
                     Button(action: {
-                        if destination.isEmpty { destination = AddTrip.DefaultDestination
+                        if title.isEmpty { title = defaultTitle
                         }
-                        createTripEntities()
+                        createItemEntities()
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
-                        Text("Add Trip")
+                        Text("Add Item")
                     }
-                    .disabled(destination.isEmpty)
+                    .disabled(title.isEmpty)
                     Spacer()
                 }
                 .padding(10)
@@ -64,12 +60,14 @@ struct AddTrip: View {
         .navigationBarTitle("", displayMode: .inline)
     }
 
-    private func createTripEntities() {
-        selectedTrip = Trip.insert(
+    private func createItemEntities() {
+        selectedItem = ChecklistItem.insert(
             in: viewContext,
-            destination: destination,
-            imageName: "None",
-            date: date)
+            title: title,
+            instructions: instructions,
+            imageName: imageName,
+            sequence: sequence,
+            category: category)
         try? viewContext.save()
         
         do {
@@ -83,7 +81,7 @@ struct AddTrip: View {
 
 struct AddTrip_Previews: PreviewProvider {
     static var previews: some View {
-        AddTrip(selectedTrip: .constant(nil))
+        AddItem(selectedItem: .constant(nil))
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

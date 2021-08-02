@@ -35,7 +35,7 @@ struct TripHistory: View {
             //.navigationBarItems(leading: btnBack)
             .navigationBarItems(trailing: (
                 NavigationLink(
-                    destination: AddTrip(selectedTrip: $selectedTrip)) {
+                    destination: AddItem(selectedTrip: $selectedTrip)) {
                     Image(systemName: "plus")
                         .imageScale(.large)
                 }

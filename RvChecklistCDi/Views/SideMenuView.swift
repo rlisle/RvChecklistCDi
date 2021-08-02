@@ -16,17 +16,9 @@ struct MenuView: View {
     @Binding var showMenu: Bool
     @Binding var showCompleted: Bool
     @Binding var selection: String?
-    @State var selectedTrip: Trip?
 
     var body: some View {
         VStack(alignment: .leading) {
-            MenuRow(title: "Add New Trip", iconName: "plus", action: {
-                selection = "Add"
-                withAnimation {
-                    showMenu = false
-                }
-            })
-            .padding(.top, 100)
             MenuRow(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
                 showCompleted.toggle()
                 withAnimation {
@@ -39,8 +31,8 @@ struct MenuView: View {
                     showMenu = false
                 }
             })
-            MenuRow(title: "Edit Trip", iconName: "car", action: {
-                selection = "Edit"
+            MenuRow(title: "Add Item", iconName: "plus", action: {
+                selection = "Add"
                 withAnimation {
                     showMenu = false
                 }
@@ -68,8 +60,7 @@ struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView(showMenu: .constant(true),
                  showCompleted: .constant(true),
-                 selection: .constant("None"),
-                 selectedTrip: nil)
+                 selection: .constant("None"))
             .previewLayout(.fixed(width: 180, height: 720))
     }
 }
