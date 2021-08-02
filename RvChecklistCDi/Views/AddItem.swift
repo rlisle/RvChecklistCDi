@@ -21,6 +21,10 @@ struct AddItem: View {
     
     @State private var title = ""
     @State private var date = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!
+    @State private var instructions = ""
+    @State private var imageName = ""
+    @State private var sequence = 0
+    @State private var category = "Pretrip"
     
     var body: some View {
         Form {
@@ -66,8 +70,9 @@ struct AddItem: View {
             title: title,
             instructions: instructions,
             imageName: imageName,
-            sequence: sequence,
-            category: category)
+            sequence: Int16(sequence),
+            category: category
+            )
         try? viewContext.save()
         
         do {

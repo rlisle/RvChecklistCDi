@@ -25,6 +25,7 @@ struct MenuView: View {
                     showMenu = false
                 }
             })
+            .padding(.top, 80)
             MenuRow(title: "Reset List", iconName: "clear", action: {
                 clearChecklist()
                 withAnimation {

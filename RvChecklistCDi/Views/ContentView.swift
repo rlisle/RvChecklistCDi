@@ -15,6 +15,8 @@ struct ContentView: View {
     @State var showMenu = false
     @State private var menuSelection: String? = nil
 
+    @State private var selectedItem: ChecklistItem?
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
     private var items: FetchedResults<ChecklistItem>
@@ -38,7 +40,7 @@ struct ContentView: View {
                     VStack {
                         Group {
                             // Side menu selected destinations
-                            NavigationLink(destination: AddItem(), tag: "Add",
+                            NavigationLink(destination: AddItem(selectedItem: $selectedItem), tag: "Add",
                                            selection: $menuSelection,
                                            label: { EmptyView() })
                         }

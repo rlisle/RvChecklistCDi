@@ -11,10 +11,7 @@
 		27002D5D2611F66600DDF0C5 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D5C2611F66600DDF0C5 /* Checkmark.swift */; };
 		27002D622611F7E500DDF0C5 /* ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D612611F7E500DDF0C5 /* ChecklistRow.swift */; };
 		27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D662611F92200DDF0C5 /* HeaderView.swift */; };
-		27002D742612104400DDF0C5 /* TripSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D732612104400DDF0C5 /* TripSection.swift */; };
 		27002D79261211BB00DDF0C5 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D78261211BB00DDF0C5 /* AddItem.swift */; };
-		27002D7E26134A2300DDF0C5 /* TripHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D7D26134A2300DDF0C5 /* TripHistory.swift */; };
-		27002D8326134E9D00DDF0C5 /* TripRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D8226134E9D00DDF0C5 /* TripRow.swift */; };
 		270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */; };
 		2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2720D05A26B5B62B00320274 /* StickyHeader.swift */; };
 		272FB2362619E129001FB6DC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FB2352619E129001FB6DC /* DetailView.swift */; };
@@ -60,10 +57,7 @@
 		27002D5C2611F66600DDF0C5 /* Checkmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		27002D612611F7E500DDF0C5 /* ChecklistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistRow.swift; sourceTree = "<group>"; };
 		27002D662611F92200DDF0C5 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		27002D732612104400DDF0C5 /* TripSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSection.swift; sourceTree = "<group>"; };
 		27002D78261211BB00DDF0C5 /* AddItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
-		27002D7D26134A2300DDF0C5 /* TripHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHistory.swift; sourceTree = "<group>"; };
-		27002D8226134E9D00DDF0C5 /* TripRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRow.swift; sourceTree = "<group>"; };
 		270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerRemoveBackText.swift; sourceTree = "<group>"; };
 		2720D05A26B5B62B00320274 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		272FB2352619E129001FB6DC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -220,10 +214,7 @@
 				27B76A452629B26800E1DCDB /* ChecklistSection.swift */,
 				27002D612611F7E500DDF0C5 /* ChecklistRow.swift */,
 				27002D5C2611F66600DDF0C5 /* Checkmark.swift */,
-				27002D732612104400DDF0C5 /* TripSection.swift */,
 				27002D78261211BB00DDF0C5 /* AddItem.swift */,
-				27002D7D26134A2300DDF0C5 /* TripHistory.swift */,
-				27002D8226134E9D00DDF0C5 /* TripRow.swift */,
 				272FB2352619E129001FB6DC /* DetailView.swift */,
 				2751F9EE262EEB2800A5F10B /* EditTrip.swift */,
 				2775C1C226A7881C009A5B00 /* SideMenuView.swift */,
@@ -372,7 +363,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27002D742612104400DDF0C5 /* TripSection.swift in Sources */,
 				270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */,
 				2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */,
 				2775C1C326A7881C009A5B00 /* SideMenuView.swift in Sources */,
@@ -383,8 +373,6 @@
 				2783316E26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld in Sources */,
 				27642DFC26ADA86300135DD1 /* NavigationBarModifier.swift in Sources */,
 				2775C1C526A78EE6009A5B00 /* MenuRow.swift in Sources */,
-				27002D7E26134A2300DDF0C5 /* TripHistory.swift in Sources */,
-				27002D8326134E9D00DDF0C5 /* TripRow.swift in Sources */,
 				272FB2362619E129001FB6DC /* DetailView.swift in Sources */,
 				2751F9EF262EEB2800A5F10B /* EditTrip.swift in Sources */,
 				2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */,
