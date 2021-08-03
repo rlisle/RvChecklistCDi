@@ -66,14 +66,13 @@ public class ChecklistItem: NSManagedObject, Decodable {
                        imageName: String,
                        sequence: Int16,
                        category: String
-    ) -> ChecklistItem
-    {
+    ) {
         let item = ChecklistItem(context: context)
         item.title = title
         item.instructions = instructions
         item.imageName = imageName
         item.sequence = sequence
         item.category = category
-        return item
+        try? context.save()
     }
 }

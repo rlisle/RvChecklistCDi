@@ -17,7 +17,7 @@ struct AddItem: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
     private var checklistItems: FetchedResults<ChecklistItem>
 
-    @Binding var selectedItem: ChecklistItem?
+//    @Binding var selectedItem: ChecklistItem?
     
     @State private var title = ""
     @State private var date = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!
@@ -65,7 +65,7 @@ struct AddItem: View {
     }
 
     private func createItemEntities() {
-        selectedItem = ChecklistItem.insert(
+        ChecklistItem.insert(
             in: viewContext,
             title: title,
             instructions: instructions,
@@ -86,7 +86,7 @@ struct AddItem: View {
 
 struct AddTrip_Previews: PreviewProvider {
     static var previews: some View {
-        AddItem(selectedItem: .constant(nil))
+        AddItem()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

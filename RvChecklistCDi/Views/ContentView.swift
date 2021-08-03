@@ -10,13 +10,13 @@ import CoreData
 
 struct ContentView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+//    @Environment(\.managedObjectContext) private var viewContext
 
     @State private var showCompleted = true
     @State var showMenu = false
     @State private var menuSelection: String? = nil
 
-    @State private var selectedItem: ChecklistItem?
+//    @State private var selectedItem: ChecklistItem?
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
@@ -40,7 +40,8 @@ struct ContentView: View {
                     VStack {
                         Group {
                             // Side menu selected destinations
-                            NavigationLink(destination: AddItem(selectedItem: $selectedItem), tag: "Add",
+                            NavigationLink(destination: AddItem(),
+                                           tag: "Add",
                                            selection: $menuSelection,
                                            label: { EmptyView() })
                         }
@@ -97,7 +98,7 @@ struct ContentView: View {
                 trailing: (
                     Button(action: {
                         NavigationLink(
-                            destination: AddItem(selectedItem: $selectedItem),
+                            destination: AddItem(),
                             label: {
                                 Text("")
                             })
