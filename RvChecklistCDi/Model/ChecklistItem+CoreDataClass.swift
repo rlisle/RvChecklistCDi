@@ -73,7 +73,12 @@ public class ChecklistItem: NSManagedObject, Decodable {
         item.imageName = imageName
         item.sequence = sequence
         item.category = category
-        try? context.save()
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            print("Error saving inserted item: \(nsError), \(nsError.userInfo)")
+        }
     }
     
     convenience init(context: NSManagedObjectContext, title: String, instructions: String, imageName: String, sequence: Int, category: String) {

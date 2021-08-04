@@ -17,44 +17,6 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
                 
-//        // Create some preview items
-//        let trip1 = Trip(context: viewContext)
-//        trip1.date = Date()
-//        trip1.destination = "Preview Resort, TX"
-//        trip1.imageName = "None"
-//
-//        let trip2 = Trip(context: viewContext)
-//        trip2.date = Calendar.current.date(byAdding: .month, value: -1, to: Date())!
-//        trip2.destination = "Previous Resort, TX"
-//        trip2.imageName = "None"
-//
-//        let item1 = ChecklistItem(context: viewContext)
-//        item1.title = "TODO: 1"
-//        item1.instructions = "Do whatever is needed"
-//        item1.imageName = "testImage"
-//        item1.category = "Pretrip"
-//        item1.sequence = 1
-//
-//        let item2 = ChecklistItem(context: viewContext)
-//        item2.title = "TODO: 2"
-//        item2.instructions = "Do whatever is needed for item 2"
-//        item2.imageName = "testImage"
-//        item2.category = "Pretrip"
-//        item2.sequence = 2
-//
-//        let item3 = ChecklistItem(context: viewContext)
-//        item3.title = "TODO: 3"
-//        item3.instructions = "Item 3 instructions"
-//        item3.imageName = "testImage"
-//        item3.category = "Pretrip"
-//        item3.sequence = 3
-//
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            let nsError = error as NSError
-//            print("Error saving preview trips: \(nsError), \(nsError.userInfo)")
-//        }
 
         // Load all checklist items from json
         do {

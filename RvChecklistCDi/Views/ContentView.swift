@@ -10,14 +10,10 @@ import CoreData
 
 struct ContentView: View {
     
-//    @Environment(\.managedObjectContext) private var viewContext
-
     @State private var showCompleted = true
     @State var showMenu = false
     @State private var menuSelection: String? = nil
 
-//    @State private var selectedItem: ChecklistItem?
-    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
     private var items: FetchedResults<ChecklistItem>

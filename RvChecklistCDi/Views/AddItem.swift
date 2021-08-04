@@ -73,7 +73,12 @@ struct AddItem: View {
             sequence: Int16(sequence),
             category: category
             )
-        try? viewContext.save()
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            print("Error saving created item entities: \(nsError), \(nsError.userInfo)")
+        }
         
         do {
             try PersistenceController.reloadChecklist(context: viewContext)

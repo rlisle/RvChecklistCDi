@@ -12,7 +12,7 @@ struct ChecklistSection: View {
     @State var category: String = ""
     @State var showCompleted: Bool = true
 
-    private var fetchRequest: FetchRequest<ChecklistItem> //? = nil
+    private var fetchRequest: FetchRequest<ChecklistItem>
         
     var body: some View {
         Section(header: Text(category)) {
@@ -29,6 +29,7 @@ struct ChecklistSection: View {
     }
     
     func deleteItems(at offsets: IndexSet) {
+        print("deleteItems at \(offsets)")
         //items.remove(atOffsets: offsets)  // TODO:
     }
     
