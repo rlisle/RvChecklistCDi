@@ -75,4 +75,13 @@ public class ChecklistItem: NSManagedObject, Decodable {
         item.category = category
         try? context.save()
     }
+    
+    convenience init(context: NSManagedObjectContext, title: String, instructions: String, imageName: String, sequence: Int, category: String) {
+        self.init(context: context)
+        self.title = title
+        self.instructions = instructions
+        self.imageName = imageName
+        self.sequence = Int16(sequence)
+        self.category = category
+    }
 }

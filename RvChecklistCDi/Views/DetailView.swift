@@ -37,14 +37,47 @@ struct DetailView: View {
             Spacer()
         }
         .padding()
-        .navigationBarTitleDisplayMode(.inline)
+        .blackNavigation
+        .navigationBarTitle(listItem.wrappedTitle, displayMode: .inline)
+//        .navigationBarItems(leading: (
+//            Button(action: {
+//                withAnimation {
+//                    self.showMenu.toggle()
+//                }
+//            }) {
+//                Image(systemName: "line.horizontal.3")
+//                    .imageScale(.large)
+//            }
+//        ),
+//        trailing: (
+//            Button(action: {
+//                NavigationLink(
+//                    destination: AddItem(),
+//                    label: {
+//                        Text("")
+//                    })
+//            }) {
+//                Image(systemName: "plus")
+//                    .imageScale(.large)
+//            }
+//        ))
+
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    DetailView(listItem: CheckListItem())
-//    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//  }
-//}
+struct DetailView_Previews: PreviewProvider {
+    
+  static var previews: some View {
+    let persistenceController = PersistenceController.shared
+    let context = persistenceController.container.viewContext
+    DetailView(listItem: ChecklistItem(
+        context: context,
+        title: "Test Item",
+        instructions: "Do this then that",
+        imageName: "none",
+        sequence: 1,
+        category: "Test")
+    )
+  }
+}
 
