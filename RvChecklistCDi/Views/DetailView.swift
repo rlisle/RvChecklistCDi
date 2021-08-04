@@ -15,15 +15,12 @@ struct DetailView: View {
 
         VStack {
 
-            if let imageName = listItem.imageName {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else {
-                Image(systemName: "photo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
+            //TODO: refactor to getSafeImage method
+            let name = listItem.wrappedImageName
+            let uiImage = (UIImage(named: name) ?? UIImage(systemName: name) ?? UIImage(systemName: "photo")!)
+            Image(uiImage: uiImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             
             Text(listItem.title ?? "Unnamed Todo")
                 .font(.title2)
@@ -74,7 +71,7 @@ struct DetailView_Previews: PreviewProvider {
         context: context,
         title: "Test Item",
         instructions: "Do this then that",
-        imageName: "none",
+        imageName: "photo",
         sequence: 1,
         category: "Test")
     )
