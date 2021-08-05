@@ -21,6 +21,7 @@ struct ChecklistSection: View {
                     ChecklistRow(item: listItem)
                 }
             }
+            // Does this do anything?
             .onDelete(perform: { indexSet in
                 print("Delete \(indexSet)!")
                 deleteItems(at: indexSet)

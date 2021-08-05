@@ -9,9 +9,19 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @State private var isShowingImagePicker = false
+    @State private var isShowingEdit = false
+    
     var listItem: ChecklistItem
     
     var body: some View {
+
+        NavigationLink(destination: ImagePicker(), isActive: $isShowingImagePicker) {
+            EmptyView()
+        }
+        NavigationLink(destination: EditItem(item: listItem), isActive: $isShowingEdit) {
+            EmptyView()
+        }
 
         VStack {
 
@@ -21,6 +31,12 @@ struct DetailView: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .gesture(
+                LongPressGesture(minimumDuration: 1)
+                    .onEnded { _ in
+                        isShowingImagePicker = true
+                    }
+                )
             
             Text(listItem.title ?? "Unnamed Todo")
                 .font(.title2)
@@ -36,29 +52,16 @@ struct DetailView: View {
         .padding()
         .blackNavigation
         .navigationBarTitle(listItem.wrappedTitle, displayMode: .inline)
-//        .navigationBarItems(leading: (
-//            Button(action: {
-//                withAnimation {
-//                    self.showMenu.toggle()
-//                }
-//            }) {
-//                Image(systemName: "line.horizontal.3")
-//                    .imageScale(.large)
-//            }
-//        ),
-//        trailing: (
-//            Button(action: {
-//                NavigationLink(
-//                    destination: AddItem(),
-//                    label: {
-//                        Text("")
-//                    })
-//            }) {
-//                Image(systemName: "plus")
-//                    .imageScale(.large)
-//            }
-//        ))
-
+        .navigationBarItems(
+            trailing: (
+                Button(action: {
+                    isShowingEdit = true
+                }) {
+                    Image(systemName: "pencil.circle")
+                        .imageScale(.large)
+                }
+            )
+        )
     }
 }
 

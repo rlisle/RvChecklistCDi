@@ -20,6 +20,7 @@ struct ContentView: View {
     
     var body: some View {
         
+        // Close side menu
         let drag = DragGesture()
             .onEnded {
                 if $0.translation.width < -100 {
@@ -107,8 +108,7 @@ struct ContentView: View {
         }
         .accentColor( .black)   // Sets back button color
 //        .onAppear {
-//            //TODO: maybe run instead when trips change?
-//            selectedTrip = nextTrip()
+//            //TODO: whatever
 //        }
     }
     
