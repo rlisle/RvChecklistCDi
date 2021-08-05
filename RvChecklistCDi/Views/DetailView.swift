@@ -16,7 +16,7 @@ struct DetailView: View {
     
     var body: some View {
 
-        NavigationLink(destination: ImagePicker(), isActive: $isShowingImagePicker) {
+        NavigationLink(destination: ImagePicker(title: listItem.title!), isActive: $isShowingImagePicker) {
             EmptyView()
         }
         NavigationLink(destination: EditItem(item: listItem), isActive: $isShowingEdit) {
