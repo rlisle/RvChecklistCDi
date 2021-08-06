@@ -28,8 +28,6 @@
 		2783316E26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */; };
 		2783317926111D2F009E98F0 /* RvChecklistCDiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783317826111D2F009E98F0 /* RvChecklistCDiTests.swift */; };
 		2783318426111D2F009E98F0 /* RvChecklistCDiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */; };
-		2783319A2611205E009E98F0 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331962611205E009E98F0 /* Trip+CoreDataClass.swift */; };
-		2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */; };
 		2783319C2611205E009E98F0 /* ChecklistItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */; };
 		2783319D2611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */; };
 		278331AA26112228009E98F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278331A926112228009E98F0 /* CloudKit.framework */; };
@@ -81,8 +79,6 @@
 		2783317F26111D2F009E98F0 /* RvChecklistCDiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RvChecklistCDiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistCDiUITests.swift; sourceTree = "<group>"; };
 		2783318526111D2F009E98F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		278331962611205E009E98F0 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
-		278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		278331A426112222009E98F0 /* RvChecklistCDi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RvChecklistCDi.entitlements; sourceTree = "<group>"; };
@@ -191,8 +187,6 @@
 			children = (
 				2783316A26111D2F009E98F0 /* Persistence.swift */,
 				2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */,
-				278331962611205E009E98F0 /* Trip+CoreDataClass.swift */,
-				278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */,
 				278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */,
 				278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */,
 				27002D542611EBA000DDF0C5 /* checklistData.json */,
@@ -367,7 +361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */,
-				2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */,
 				2775C1C326A7881C009A5B00 /* SideMenuView.swift in Sources */,
 				2751E0EC26BB7E5D00ED9958 /* ImagePicker.swift in Sources */,
 				27002D79261211BB00DDF0C5 /* AddItem.swift in Sources */,
@@ -385,7 +378,6 @@
 				27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */,
 				27B76A462629B26800E1DCDB /* ChecklistSection.swift in Sources */,
 				27002D5D2611F66600DDF0C5 /* Checkmark.swift in Sources */,
-				2783319A2611205E009E98F0 /* Trip+CoreDataClass.swift in Sources */,
 				2783319C2611205E009E98F0 /* ChecklistItem+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

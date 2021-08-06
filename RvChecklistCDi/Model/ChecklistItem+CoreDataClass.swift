@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 @objc(ChecklistItem)
@@ -15,7 +15,7 @@ public class ChecklistItem: NSManagedObject, Decodable {
     enum CodingKeys: CodingKey {
         case title
         case instructions
-        case imageName
+        case photo
         case sequence
         case category
         case timestamp
@@ -33,7 +33,7 @@ public class ChecklistItem: NSManagedObject, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(String.self, forKey: .title)
         self.instructions = try container.decode(String.self, forKey: .instructions)
-        self.imageName = try container.decode(String.self, forKey: .imageName)
+        self.photo = try UIImage(data: container.decode(Data.self, forKey: .photo))
         self.sequence = try container.decode(Int16.self, forKey: .sequence)
         self.category = try container.decode(String.self, forKey: .category)
         self.timestamp = try container.decode(Date.self, forKey: .timestamp)
@@ -48,8 +48,8 @@ public class ChecklistItem: NSManagedObject, Decodable {
         instructions ?? "Steps to accomplish TODO:..."
     }
     
-    public var wrappedImageName: String {
-        imageName ?? "No Image"
+    public var wrappedPhoto: UIImage {
+        photo ?? UIImage()
     }
     
     public var wrappedCategory: String {
@@ -63,14 +63,15 @@ public class ChecklistItem: NSManagedObject, Decodable {
     static func insert(in context: NSManagedObjectContext,
                        title: String,
                        instructions: String,
-                       imageName: String,
+                       photo: UIImage,
                        sequence: Int16,
-                       category: String
+                       category: String,
+                       id: UUID
     ) {
         let item = ChecklistItem(context: context)
         item.title = title
         item.instructions = instructions
-        item.imageName = imageName
+        item.photo = photo
         item.sequence = sequence
         item.category = category
         do {
@@ -81,11 +82,11 @@ public class ChecklistItem: NSManagedObject, Decodable {
         }
     }
     
-    convenience init(context: NSManagedObjectContext, title: String, instructions: String, imageName: String, sequence: Int, category: String) {
+    convenience init(context: NSManagedObjectContext, title: String, instructions: String, photo: UIImage, sequence: Int, category: String) {
         self.init(context: context)
         self.title = title
         self.instructions = instructions
-        self.imageName = imageName
+        self.photo = photo
         self.sequence = Int16(sequence)
         self.category = category
     }

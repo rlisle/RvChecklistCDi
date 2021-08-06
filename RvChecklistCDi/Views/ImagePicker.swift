@@ -9,22 +9,45 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
-    @State private var image: UIImage?  // Not a binding, we'll handle saving to core data here
-    private var fetchRequest: FetchRequest<ChecklistItem>
+    @Binding var image: UIImage
+    var title: String?
+//    private var fetchRequest: FetchRequest<ChecklistItem>
+//    var item: ChecklistItem
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
         return picker
     }
-
+    
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
 
     }
     
-    init(title: String) {
-        //Uh-oh, what happens when title changes? Probably need a persistent ID
-        self.fetchRequest = FetchRequest(
-            sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
-            predicate: NSPredicate(format: "title = %@", title))
+//    init(image: UIImage) {
+//        self.fetchRequest = FetchRequest(
+//            sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
+//            predicate: NSPredicate(format: "title = %@", title))
+//    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                parent.image = uiImage
+            }
+
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+        
     }
 }

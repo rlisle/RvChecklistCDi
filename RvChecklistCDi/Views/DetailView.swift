@@ -11,23 +11,16 @@ struct DetailView: View {
     
     @State private var isShowingImagePicker = false
     @State private var isShowingEdit = false
+    @State private var image: UIImage = UIImage(systemName: "photo")!
     
     var listItem: ChecklistItem
     
     var body: some View {
 
-        NavigationLink(destination: ImagePicker(title: listItem.title!), isActive: $isShowingImagePicker) {
-            EmptyView()
-        }
-        NavigationLink(destination: EditItem(item: listItem), isActive: $isShowingEdit) {
-            EmptyView()
-        }
-
         VStack {
 
             //TODO: refactor to getSafeImage method
-            let name = listItem.wrappedImageName
-            let uiImage = (UIImage(named: name) ?? UIImage(systemName: name) ?? UIImage(systemName: "photo")!)
+            let uiImage: UIImage = (UIImage(data: listItem.photo) ?? UIImage(systemName: "photo"))!
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -62,6 +55,14 @@ struct DetailView: View {
                 }
             )
         )
+        .sheet(isPresented:  $isShowingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: $image)
+        }
+    }
+    
+    func loadImage() {
+        //TODO: save image to checklist
+        print("loadImage")
     }
 }
 
@@ -73,8 +74,8 @@ struct DetailView_Previews: PreviewProvider {
     DetailView(listItem: ChecklistItem(
         context: context,
         title: "Test Item",
-        instructions: "Do this then that",
-        imageName: "photo",
+        instructions: "Do this,\nthen do that.\nFinally, do this...",
+        photo: UIImage(systemName: "photo")!,
         sequence: 1,
         category: "Test")
     )

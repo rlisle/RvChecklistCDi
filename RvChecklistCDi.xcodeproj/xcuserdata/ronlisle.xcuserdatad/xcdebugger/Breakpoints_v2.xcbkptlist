@@ -142,8 +142,8 @@
             filePath = "RvChecklistCDi/Views/AddItem.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "createItemEntities()"
             landmarkType = "7">
          </BreakpointContent>

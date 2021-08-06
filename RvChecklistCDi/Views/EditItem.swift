@@ -73,7 +73,7 @@ struct EditItemPreviewContainer: View {
                     context: context,
                     title: "TODO Item",
                     instructions: "Do whatever is needed",
-                    imageName: "photo",
+                    photo: UIImage(systemName: "photo")!,
                     sequence: 1,
                     category: "Pre-Trip"))
     }

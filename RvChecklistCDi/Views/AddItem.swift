@@ -17,28 +17,15 @@ struct AddItem: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
     private var checklistItems: FetchedResults<ChecklistItem>
 
-//    @Binding var selectedItem: ChecklistItem?
-    
     @State private var title = ""
     @State private var date = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!
     @State private var instructions = ""
-    @State private var imageName = ""
+    @State private var photo = UIImage()
     @State private var sequence = 0
     @State private var category = "Pretrip"
     
     var body: some View {
         Form {
-//            Section(header: Text("Destination")) {
-//                TextField("Destination", text: $destination)
-//            }
-//            Section {
-//                DatePicker(
-//                    selection: $date,
-//                    displayedComponents: .date) { Text("Date").foregroundColor(Color(.gray)) }
-//            }
-//                Section(header: Text("Length of Stay")) {
-//                    TextField("Length of Stay", text: $lengthOfStay)
-//                }
             Section {
                 HStack {
                     Spacer()
@@ -69,7 +56,7 @@ struct AddItem: View {
             in: viewContext,
             title: title,
             instructions: instructions,
-            imageName: imageName,
+            photo: photo,
             sequence: Int16(sequence),
             category: category
             )
