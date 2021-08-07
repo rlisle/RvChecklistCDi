@@ -11,17 +11,14 @@ struct DetailView: View {
     
     @State private var isShowingImagePicker = false
     @State private var isShowingEdit = false
-    @State private var image: UIImage = UIImage(systemName: "photo")!
     
-    var listItem: ChecklistItem
+    @State var listItem: ChecklistItem
     
     var body: some View {
 
         VStack {
 
-            //TODO: refactor to getSafeImage method
-            let uiImage: UIImage = (UIImage(data: listItem.photo) ?? UIImage(systemName: "photo"))!
-            Image(uiImage: uiImage)
+            Image(uiImage: listItem.wrappedPhoto)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .gesture(
@@ -56,7 +53,7 @@ struct DetailView: View {
             )
         )
         .sheet(isPresented:  $isShowingImagePicker, onDismiss: loadImage) {
-            ImagePicker(image: $image)
+            ImagePicker(listItem: $listItem)
         }
     }
     

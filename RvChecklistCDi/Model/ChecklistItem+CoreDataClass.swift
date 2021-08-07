@@ -15,7 +15,7 @@ public class ChecklistItem: NSManagedObject, Decodable {
     enum CodingKeys: CodingKey {
         case title
         case instructions
-        case photo
+        case photoData
         case sequence
         case category
         case timestamp
@@ -33,7 +33,7 @@ public class ChecklistItem: NSManagedObject, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(String.self, forKey: .title)
         self.instructions = try container.decode(String.self, forKey: .instructions)
-        self.photo = try UIImage(data: container.decode(Data.self, forKey: .photo))
+        self.photoData = try container.decode(Data.self, forKey: .photoData)
         self.sequence = try container.decode(Int16.self, forKey: .sequence)
         self.category = try container.decode(String.self, forKey: .category)
         self.timestamp = try container.decode(Date.self, forKey: .timestamp)
@@ -49,7 +49,11 @@ public class ChecklistItem: NSManagedObject, Decodable {
     }
     
     public var wrappedPhoto: UIImage {
-        photo ?? UIImage()
+        guard let photoData = photoData,
+            let image = UIImage(data: photoData) else {
+            return UIImage(named: "AppIcon")!
+        }
+        return image
     }
     
     public var wrappedCategory: String {
@@ -65,13 +69,12 @@ public class ChecklistItem: NSManagedObject, Decodable {
                        instructions: String,
                        photo: UIImage,
                        sequence: Int16,
-                       category: String,
-                       id: UUID
+                       category: String
     ) {
         let item = ChecklistItem(context: context)
         item.title = title
         item.instructions = instructions
-        item.photo = photo
+        item.photoData = photo.pngData()
         item.sequence = sequence
         item.category = category
         do {
@@ -86,7 +89,7 @@ public class ChecklistItem: NSManagedObject, Decodable {
         self.init(context: context)
         self.title = title
         self.instructions = instructions
-        self.photo = photo
+        self.photoData = photo.pngData()
         self.sequence = Int16(sequence)
         self.category = category
     }

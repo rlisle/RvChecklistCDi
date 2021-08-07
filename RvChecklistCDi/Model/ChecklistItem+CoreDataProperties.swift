@@ -18,7 +18,7 @@ extension ChecklistItem {
 
     @NSManaged public var title: String?
     @NSManaged public var instructions: String?
-    @NSManaged public var photo: UIImage?
+    @NSManaged public var photoData: Data?
     @NSManaged public var sequence: Int16
     @NSManaged public var category: String?
     @NSManaged public var timestamp: Date?
