@@ -17,7 +17,6 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
                 
-
         // Load all checklist items from json
         do {
             _ = try reloadChecklist(context: viewContext)
@@ -81,7 +80,6 @@ struct PersistenceController {
     @discardableResult
     static func reloadChecklist(context: NSManagedObjectContext) throws -> [ChecklistItem] {
 
-        // First, delete all existing checklist entities
         deleteChecklist(context: context)
         
         let decoder = JSONDecoder()

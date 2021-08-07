@@ -48,6 +48,7 @@ struct MenuView: View {
     
     private func clearChecklist() {
         do {
+            print("Clearing checklist")
             try PersistenceController.reloadChecklist(context: viewContext)
             try viewContext.save()
         } catch {

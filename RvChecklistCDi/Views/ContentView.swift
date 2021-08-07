@@ -94,11 +94,7 @@ struct ContentView: View {
                 ),
                 trailing: (
                     Button(action: {
-                        NavigationLink(
-                            destination: AddItem(),
-                            label: {
-                                Text("")
-                            })
+                        menuSelection = "Add"
                     }) {
                         Image(systemName: "plus")
                             .imageScale(.large)
@@ -121,15 +117,6 @@ struct ContentView: View {
         return Text("\(section) (\(doneCount) of \(sectionCount) items done)")
     }
         
-//    private func clearChecklist() {
-//        do {
-//            try PersistenceController.reloadChecklist(context: viewContext)
-//            try viewContext.save()
-//        } catch {
-//            print("Error clearing checklist")
-//        }
-//    }
-    
     init() {
         UINavigationBarAppearance().configureWithTransparentBackground()
     }
