@@ -12,13 +12,14 @@ struct DetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var isShowingImagePicker = false
+    @State private var isShowingCamera = false
     @State private var isShowingEdit = false
-    
+
     @StateObject var listItem: ChecklistItem
     
     var body: some View {
 
-        VStack {
+        return VStack {
 
             Image(uiImage: listItem.wrappedPhoto)
                 .resizable()
@@ -44,18 +45,31 @@ struct DetailView: View {
         .padding()
         .blackNavigation
         .navigationBarTitle(listItem.wrappedTitle, displayMode: .inline)
-        .navigationBarItems(
-            trailing: (
+        .navigationBarItems(trailing:
+            HStack {
                 Button(action: {
                     isShowingEdit = true
                 }) {
                     Image(systemName: "pencil.circle")
                         .imageScale(.large)
                 }
-            )
+                
+                Button(action: {
+                    isShowingCamera = true
+                }) {
+                    Image(systemName: "camera")
+                        .imageScale(.large)
+                }
+            }
         )
         .sheet(isPresented:  $isShowingImagePicker, onDismiss: loadImage) {
-            ImagePicker(listItem: listItem)
+            ImagePicker(listItem: listItem, sourceType: .photoLibrary)
+        }
+        .sheet(isPresented:  $isShowingCamera, onDismiss: loadImage) {
+            ImagePicker(listItem: listItem, sourceType: .camera)
+        }
+        .sheet(isPresented:  $isShowingEdit, onDismiss: loadImage) {
+            EditItem(item: listItem)
         }
     }
     

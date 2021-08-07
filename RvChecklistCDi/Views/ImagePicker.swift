@@ -7,13 +7,19 @@
 
 import SwiftUI
 
+//TODO: Move to iOS15 when available
 struct ImagePicker: UIViewControllerRepresentable {
+    
     @Environment(\.presentationMode) var presentationMode
-    var title: String?
     @ObservedObject var listItem: ChecklistItem
 
+    var title: String?
+    var sourceType: UIImagePickerController.SourceType
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.sourceType = .camera //.photoLibrary
         picker.delegate = context.coordinator
         return picker
     }
