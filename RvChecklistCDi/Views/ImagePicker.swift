@@ -35,9 +35,25 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
-                parent.listItem.photoData = uiImage.pngData()
+                let adjustedImage = uiImage.upOrientationImage()
+                parent.listItem.photoData = adjustedImage.pngData()
             }
             parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+}
+
+extension UIImage {
+    func upOrientationImage() -> UIImage {
+        switch imageOrientation {
+        case .up:
+            return self
+        default:
+            UIGraphicsBeginImageContextWithOptions(size, false, scale)
+            draw(in: CGRect(origin: .zero, size: size))
+            let result = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return result ?? self
         }
     }
 }
