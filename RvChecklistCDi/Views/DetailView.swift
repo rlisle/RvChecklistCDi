@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DetailView: View {
-    
+
+    @Environment(\.managedObjectContext) private var viewContext
+
     @State private var isShowingImagePicker = false
     @State private var isShowingEdit = false
     
-    @State var listItem: ChecklistItem
+    @StateObject var listItem: ChecklistItem
     
     var body: some View {
 
@@ -53,13 +55,16 @@ struct DetailView: View {
             )
         )
         .sheet(isPresented:  $isShowingImagePicker, onDismiss: loadImage) {
-            ImagePicker(listItem: $listItem)
+            ImagePicker(listItem: listItem)
         }
     }
     
     func loadImage() {
-        //TODO: save image to checklist
-        print("loadImage")
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error saving new image")
+        }
     }
 }
 
