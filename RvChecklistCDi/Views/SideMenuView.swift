@@ -19,30 +19,47 @@ struct MenuView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            MenuRow(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
-                showCompleted.toggle()
-                withAnimation {
-                    showMenu = false
-                }
-            })
-            .padding(.top, 80)
-            MenuRow(title: "Reset List", iconName: "clear", action: {
-                clearChecklist()
-                withAnimation {
-                    showMenu = false
-                }
-            })
-            MenuRow(title: "Add Item", iconName: "plus", action: {
-                selection = "Add"
-                withAnimation {
-                    showMenu = false
-                }
-            })
+            
+            Section(header: Text("Actions")) {
+                
+                MenuRow(title: "Add Item", iconName: "plus", action: {
+                    selection = "Add"
+                    withAnimation {
+                        showMenu = false
+                    }
+                })
+                .padding(.bottom, 60)
+            }
+            
+            Section(header: Text("Settings")) {
+                
+                MenuRow(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
+                    showCompleted.toggle()
+                    withAnimation {
+                        showMenu = false
+                    }
+                })
+                .padding(.bottom, 60)
+            }
+
+            Section(header: Text("Danger!")){
+
+                MenuRow(title: "Reset List", iconName: "clear", action: {
+                    clearChecklist()
+                    withAnimation {
+                        showMenu = false
+                    }
+                })
+            
+            }
+            
             Spacer()
         }
+        .padding(.top, 80)
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(red: 32/255, green: 32/255, blue: 32/255))
+        .foregroundColor(.gray)
         .edgesIgnoringSafeArea(.all)
     }
     

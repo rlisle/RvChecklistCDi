@@ -21,13 +21,15 @@ struct MenuRow: View {
         }) {
             HStack {
                 Image(systemName: iconName)
-                    .foregroundColor(.gray)
+//                    .foregroundColor(.gray)
                     .imageScale(.large)
                 Text(title)
-                    .foregroundColor(.gray)
+//                    .foregroundColor(.white)
                     .font(.headline)
             }
-            .padding(.top, 30)
+            .background(Color(red: 32/255, green: 32/255, blue: 32/255))
+            .foregroundColor(Color(red: 192/255, green: 192/255, blue: 192/255))
+          .padding(.top, 30)
         }
     }
 }
