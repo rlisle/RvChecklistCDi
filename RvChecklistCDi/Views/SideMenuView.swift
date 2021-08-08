@@ -52,7 +52,7 @@ struct MenuView: View {
             try PersistenceController.reloadChecklist(context: viewContext)
             try viewContext.save()
         } catch {
-            print("Error clearing checklist")
+            print("Error reseting checklist \(error)")
         }
     }
 

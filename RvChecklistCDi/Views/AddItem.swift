@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct AddItem: View {
-    let defaultTitle = "New TODO"
 
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
-    private var checklistItems: FetchedResults<ChecklistItem>
-
-    @State private var title = ""
-    @State private var date = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!
-    @State private var instructions = ""
-    @State private var photo = UIImage()
-    @State private var sequence = 0
-    @State private var category = "Pretrip"
+    @State private var title = "New TODO:"
+    @State private var instructions = "Instructions..."
+    @State private var category = "Pre-Trip"
     
     var body: some View {
         Form {
+            Section(header: Text("Title")) {
+                TextField("Title", text: $title)
+            }
+            Section(header: Text("Category")) {
+                TextField("Pre-Trip", text: $category)
+            }
+            Section(header: Text("Instructions")) {
+                TextField("Instructions", text: $instructions)
+            }
             Section {
                 HStack {
                     Spacer()
                     Button(action: {
-                        if title.isEmpty { title = defaultTitle
-                        }
                         createItemEntities()
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
@@ -47,8 +46,10 @@ struct AddItem: View {
                 )
             }
         }
+        .background(Color(red: 32/255, green: 32/255, blue: 32/255))
+        .edgesIgnoringSafeArea(.all)
         .blackNavigation
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarTitle("Add Item", displayMode: .inline)
     }
 
     private func createItemEntities() {
@@ -56,8 +57,8 @@ struct AddItem: View {
             in: viewContext,
             title: title,
             instructions: instructions,
-            photo: photo,
-            sequence: Int16(sequence),
+            photo: UIImage(systemName: "photo")!,
+            sequence: Int16(1),
             category: category
             )
         do {

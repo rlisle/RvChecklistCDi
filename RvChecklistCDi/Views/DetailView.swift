@@ -53,12 +53,13 @@ struct DetailView: View {
                     Image(systemName: "pencil.circle")
                         .imageScale(.large)
                 }
-                
-                Button(action: {
-                    isShowingCamera = true
-                }) {
-                    Image(systemName: "camera")
-                        .imageScale(.large)
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    Button(action: {
+                        isShowingCamera = true
+                    }) {
+                        Image(systemName: "camera")
+                            .imageScale(.large)
+                    }
                 }
             }
         )

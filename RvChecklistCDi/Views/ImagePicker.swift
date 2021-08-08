@@ -42,7 +42,15 @@ struct ImagePicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let uiImage = info[.editedImage] as? UIImage {
                 let adjustedImage = uiImage.upOrientationImage()
-                parent.listItem.photoData = adjustedImage.pngData()
+                
+                //TODO: Resize image
+                let size = CGSize(width: 64.0, height: 64.0)    // testing really small
+                let renderer = UIGraphicsImageRenderer(size: size)
+                let resizedImage = renderer.image { (context) in
+                    adjustedImage.draw(in: CGRect(origin: .zero, size: size))
+                }
+                
+                parent.listItem.photoData = resizedImage.pngData()
             }
             parent.presentationMode.wrappedValue.dismiss()
         }

@@ -16,11 +16,15 @@ struct EditItem: View {
     
     @State private var title = "New TODO:"
     @State private var instructions = "Instructions..."
-    
+    @State private var category = "Pre-Trip"
+
     var body: some View {
         Form {
             Section(header: Text("Title")) {
                 TextField("Title", text: $title)
+            }
+            Section(header: Text("Category")) {
+                TextField("Pre-Trip", text: $category)
             }
             Section(header: Text("Instructions")) {
                 TextField("Instructions", text: $instructions)
@@ -52,6 +56,7 @@ struct EditItem: View {
         .onAppear() {
             title = item.wrappedTitle
             instructions = item.wrappedInstructions
+            category = item.wrappedCategory
         }
     }
 

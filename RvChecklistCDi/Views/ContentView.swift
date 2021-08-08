@@ -104,7 +104,7 @@ struct ContentView: View {
         }
         .accentColor( .black)   // Sets back button color
 //        .onAppear {
-//            //TODO: whatever
+//            print("On Appear")
 //        }
     }
     

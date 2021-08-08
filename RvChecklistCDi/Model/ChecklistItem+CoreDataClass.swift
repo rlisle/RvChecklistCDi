@@ -33,7 +33,7 @@ public class ChecklistItem: NSManagedObject, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(String.self, forKey: .title)
         self.instructions = try container.decode(String.self, forKey: .instructions)
-        self.photoData = try container.decode(Data.self, forKey: .photoData)
+        self.photoData = try container.decodeIfPresent(Data.self, forKey: .photoData)
         self.sequence = try container.decode(Int16.self, forKey: .sequence)
         self.category = try container.decode(String.self, forKey: .category)
         self.timestamp = try container.decode(Date.self, forKey: .timestamp)
