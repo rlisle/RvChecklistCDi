@@ -17,24 +17,6 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
                 
-        // Create some preview items
-        let trip1 = Trip(context: viewContext)
-        trip1.date = Date()
-        trip1.destination = "Preview Resort, TX"
-        trip1.imageName = "None"
-
-        let trip2 = Trip(context: viewContext)
-        trip2.date = Calendar.current.date(byAdding: .month, value: -1, to: Date())!
-        trip2.destination = "Previous Resort, TX"
-        trip2.imageName = "None"
-
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            print("Error saving preview trips: \(nsError), \(nsError.userInfo)")
-        }
-
         // Load all checklist items from json
         do {
             _ = try reloadChecklist(context: viewContext)
@@ -95,10 +77,10 @@ struct PersistenceController {
     }
     
     // Reload checklist from a json file.
+    // Warning - all photo data will be lost
     @discardableResult
     static func reloadChecklist(context: NSManagedObjectContext) throws -> [ChecklistItem] {
 
-        // First, delete all existing checklist entities
         deleteChecklist(context: context)
         
         let decoder = JSONDecoder()

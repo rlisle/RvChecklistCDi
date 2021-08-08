@@ -8,22 +8,28 @@
 import SwiftUI
 
 struct DetailView: View {
-    
-    var listItem: ChecklistItem
+
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @State private var isShowingImagePicker = false
+    @State private var isShowingCamera = false
+    @State private var isShowingEdit = false
+
+    @StateObject var listItem: ChecklistItem
     
     var body: some View {
 
-        VStack {
+        return VStack {
 
-            if let imageName = listItem.imageName {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else {
-                Image(systemName: "photo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
+            Image(uiImage: listItem.wrappedPhoto)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .gesture(
+                LongPressGesture(minimumDuration: 1)
+                    .onEnded { _ in
+                        isShowingImagePicker = true
+                    }
+                )
             
             Text(listItem.title ?? "Unnamed Todo")
                 .font(.title2)
@@ -37,14 +43,59 @@ struct DetailView: View {
             Spacer()
         }
         .padding()
-        .navigationBarTitleDisplayMode(.inline)
+        .blackNavigation
+        .navigationBarTitle(listItem.wrappedTitle, displayMode: .inline)
+        .navigationBarItems(trailing:
+            HStack {
+                Button(action: {
+                    isShowingEdit = true
+                }) {
+                    Image(systemName: "pencil.circle")
+                        .imageScale(.large)
+                }
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    Button(action: {
+                        isShowingCamera = true
+                    }) {
+                        Image(systemName: "camera")
+                            .imageScale(.large)
+                    }
+                }
+            }
+        )
+        .sheet(isPresented:  $isShowingImagePicker, onDismiss: loadImage) {
+            ImagePicker(listItem: listItem, sourceType: .photoLibrary)
+        }
+        .sheet(isPresented:  $isShowingCamera, onDismiss: loadImage) {
+            ImagePicker(listItem: listItem, sourceType: .camera)
+        }
+        .sheet(isPresented:  $isShowingEdit, onDismiss: loadImage) {
+            EditItem(item: listItem)
+        }
+    }
+    
+    func loadImage() {
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error saving new image")
+        }
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    DetailView(listItem: CheckListItem())
-//    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//  }
-//}
+struct DetailView_Previews: PreviewProvider {
+    
+  static var previews: some View {
+    let persistenceController = PersistenceController.shared
+    let context = persistenceController.container.viewContext
+    DetailView(listItem: ChecklistItem(
+        context: context,
+        title: "Test Item",
+        instructions: "Do this,\nthen do that.\nFinally, do this...",
+        photo: UIImage(systemName: "photo")!,
+        sequence: 1,
+        category: "Test")
+    )
+  }
+}
 

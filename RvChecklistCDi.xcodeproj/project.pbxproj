@@ -11,14 +11,12 @@
 		27002D5D2611F66600DDF0C5 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D5C2611F66600DDF0C5 /* Checkmark.swift */; };
 		27002D622611F7E500DDF0C5 /* ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D612611F7E500DDF0C5 /* ChecklistRow.swift */; };
 		27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D662611F92200DDF0C5 /* HeaderView.swift */; };
-		27002D742612104400DDF0C5 /* TripSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D732612104400DDF0C5 /* TripSection.swift */; };
-		27002D79261211BB00DDF0C5 /* AddTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D78261211BB00DDF0C5 /* AddTrip.swift */; };
-		27002D7E26134A2300DDF0C5 /* TripHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D7D26134A2300DDF0C5 /* TripHistory.swift */; };
-		27002D8326134E9D00DDF0C5 /* TripRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D8226134E9D00DDF0C5 /* TripRow.swift */; };
+		27002D79261211BB00DDF0C5 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D78261211BB00DDF0C5 /* AddItem.swift */; };
 		270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */; };
 		2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2720D05A26B5B62B00320274 /* StickyHeader.swift */; };
 		272FB2362619E129001FB6DC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FB2352619E129001FB6DC /* DetailView.swift */; };
-		2751F9EF262EEB2800A5F10B /* EditTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751F9EE262EEB2800A5F10B /* EditTrip.swift */; };
+		2751E0EC26BB7E5D00ED9958 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751E0EB26BB7E5D00ED9958 /* ImagePicker.swift */; };
+		2751F9EF262EEB2800A5F10B /* EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751F9EE262EEB2800A5F10B /* EditItem.swift */; };
 		27642DFC26ADA86300135DD1 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27642DFB26ADA86300135DD1 /* NavigationBarModifier.swift */; };
 		2775C1C326A7881C009A5B00 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775C1C226A7881C009A5B00 /* SideMenuView.swift */; };
 		2775C1C526A78EE6009A5B00 /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775C1C426A78EE6009A5B00 /* MenuRow.swift */; };
@@ -30,8 +28,6 @@
 		2783316E26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */; };
 		2783317926111D2F009E98F0 /* RvChecklistCDiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783317826111D2F009E98F0 /* RvChecklistCDiTests.swift */; };
 		2783318426111D2F009E98F0 /* RvChecklistCDiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */; };
-		2783319A2611205E009E98F0 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331962611205E009E98F0 /* Trip+CoreDataClass.swift */; };
-		2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */; };
 		2783319C2611205E009E98F0 /* ChecklistItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */; };
 		2783319D2611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */; };
 		278331AA26112228009E98F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278331A926112228009E98F0 /* CloudKit.framework */; };
@@ -60,14 +56,12 @@
 		27002D5C2611F66600DDF0C5 /* Checkmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		27002D612611F7E500DDF0C5 /* ChecklistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistRow.swift; sourceTree = "<group>"; };
 		27002D662611F92200DDF0C5 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		27002D732612104400DDF0C5 /* TripSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSection.swift; sourceTree = "<group>"; };
-		27002D78261211BB00DDF0C5 /* AddTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrip.swift; sourceTree = "<group>"; };
-		27002D7D26134A2300DDF0C5 /* TripHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHistory.swift; sourceTree = "<group>"; };
-		27002D8226134E9D00DDF0C5 /* TripRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRow.swift; sourceTree = "<group>"; };
+		27002D78261211BB00DDF0C5 /* AddItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
 		270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerRemoveBackText.swift; sourceTree = "<group>"; };
 		2720D05A26B5B62B00320274 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		272FB2352619E129001FB6DC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		2751F9EE262EEB2800A5F10B /* EditTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrip.swift; sourceTree = "<group>"; };
+		2751E0EB26BB7E5D00ED9958 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2751F9EE262EEB2800A5F10B /* EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItem.swift; sourceTree = "<group>"; };
 		27642DFB26ADA86300135DD1 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		2775C1C226A7881C009A5B00 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		2775C1C426A78EE6009A5B00 /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
@@ -85,8 +79,6 @@
 		2783317F26111D2F009E98F0 /* RvChecklistCDiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RvChecklistCDiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2783318326111D2F009E98F0 /* RvChecklistCDiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistCDiUITests.swift; sourceTree = "<group>"; };
 		2783318526111D2F009E98F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		278331962611205E009E98F0 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
-		278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		278331A426112222009E98F0 /* RvChecklistCDi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RvChecklistCDi.entitlements; sourceTree = "<group>"; };
@@ -195,8 +187,6 @@
 			children = (
 				2783316A26111D2F009E98F0 /* Persistence.swift */,
 				2783316C26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld */,
-				278331962611205E009E98F0 /* Trip+CoreDataClass.swift */,
-				278331972611205E009E98F0 /* Trip+CoreDataProperties.swift */,
 				278331982611205E009E98F0 /* ChecklistItem+CoreDataClass.swift */,
 				278331992611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift */,
 				27002D542611EBA000DDF0C5 /* checklistData.json */,
@@ -220,15 +210,13 @@
 				27B76A452629B26800E1DCDB /* ChecklistSection.swift */,
 				27002D612611F7E500DDF0C5 /* ChecklistRow.swift */,
 				27002D5C2611F66600DDF0C5 /* Checkmark.swift */,
-				27002D732612104400DDF0C5 /* TripSection.swift */,
-				27002D78261211BB00DDF0C5 /* AddTrip.swift */,
-				27002D7D26134A2300DDF0C5 /* TripHistory.swift */,
-				27002D8226134E9D00DDF0C5 /* TripRow.swift */,
+				27002D78261211BB00DDF0C5 /* AddItem.swift */,
 				272FB2352619E129001FB6DC /* DetailView.swift */,
-				2751F9EE262EEB2800A5F10B /* EditTrip.swift */,
+				2751F9EE262EEB2800A5F10B /* EditItem.swift */,
 				2775C1C226A7881C009A5B00 /* SideMenuView.swift */,
 				2775C1C426A78EE6009A5B00 /* MenuRow.swift */,
 				2720D05A26B5B62B00320274 /* StickyHeader.swift */,
+				2751E0EB26BB7E5D00ED9958 /* ImagePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,28 +360,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27002D742612104400DDF0C5 /* TripSection.swift in Sources */,
 				270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */,
-				2783319B2611205E009E98F0 /* Trip+CoreDataProperties.swift in Sources */,
 				2775C1C326A7881C009A5B00 /* SideMenuView.swift in Sources */,
-				27002D79261211BB00DDF0C5 /* AddTrip.swift in Sources */,
+				2751E0EC26BB7E5D00ED9958 /* ImagePicker.swift in Sources */,
+				27002D79261211BB00DDF0C5 /* AddItem.swift in Sources */,
 				27002D622611F7E500DDF0C5 /* ChecklistRow.swift in Sources */,
 				2783316B26111D2F009E98F0 /* Persistence.swift in Sources */,
 				2783316426111D2E009E98F0 /* ContentView.swift in Sources */,
 				2783316E26111D2F009E98F0 /* RvChecklistCDi.xcdatamodeld in Sources */,
 				27642DFC26ADA86300135DD1 /* NavigationBarModifier.swift in Sources */,
 				2775C1C526A78EE6009A5B00 /* MenuRow.swift in Sources */,
-				27002D7E26134A2300DDF0C5 /* TripHistory.swift in Sources */,
-				27002D8326134E9D00DDF0C5 /* TripRow.swift in Sources */,
 				272FB2362619E129001FB6DC /* DetailView.swift in Sources */,
-				2751F9EF262EEB2800A5F10B /* EditTrip.swift in Sources */,
+				2751F9EF262EEB2800A5F10B /* EditItem.swift in Sources */,
 				2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */,
 				2783316226111D2E009E98F0 /* RvChecklistCDiApp.swift in Sources */,
 				2783319D2611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift in Sources */,
 				27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */,
 				27B76A462629B26800E1DCDB /* ChecklistSection.swift in Sources */,
 				27002D5D2611F66600DDF0C5 /* Checkmark.swift in Sources */,
-				2783319A2611205E009E98F0 /* Trip+CoreDataClass.swift in Sources */,
 				2783319C2611205E009E98F0 /* ChecklistItem+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ChecklistRow: View {
-    @Environment(\.managedObjectContext) private var viewContext
 
     @ObservedObject var item: ChecklistItem
     
@@ -23,7 +22,6 @@ struct ChecklistRow: View {
 }
 
 struct ChecklistRowPreviewContainer : View {
-    @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])

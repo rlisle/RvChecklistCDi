@@ -9,19 +9,26 @@ import SwiftUI
 
 struct Checkmark: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
     @Binding var isDone: Bool
     
     var body: some View {
-        Button(action: {
-            print("Button toggle")
-            isDone.toggle()
-        }) {
-            Image(systemName: isDone ? "checkmark.square" : "square")
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    print("Image toggle")
-                    isDone.toggle()
-                }
+
+        Image(systemName: isDone ? "checkmark.square" : "square")
+            .contentShape(Rectangle())
+            .onTapGesture {
+                toggleIsDone()
+            }
+    }
+    
+    func toggleIsDone() {
+        print("Checkbox toggle")
+        isDone.toggle()
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            print("Error saving toggled item: \(nsError), \(nsError.userInfo)")
         }
     }
 }
