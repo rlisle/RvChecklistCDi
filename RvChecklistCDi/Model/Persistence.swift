@@ -77,6 +77,7 @@ struct PersistenceController {
     }
     
     // Reload checklist from a json file.
+    // Warning - all photo data will be lost
     @discardableResult
     static func reloadChecklist(context: NSManagedObjectContext) throws -> [ChecklistItem] {
 
