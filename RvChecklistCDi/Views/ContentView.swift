@@ -60,9 +60,9 @@ struct ContentView: View {
                             
                         }
                         .listStyle(GroupedListStyle())
-                        .toolbar {
-                            EditButton()
-                        }
+//                        .toolbar {
+//                            EditButton()
+//                        }
                         .animation(.easeInOut)
                         .overlay(items.isEmpty ? Text("No items found") : nil, alignment: .center)
                     }
@@ -108,18 +108,18 @@ struct ContentView: View {
 //        }
     }
     
-    private func sectionText(_ section: String) -> Text {
-        let doneCount = items.filter { $0.category == section && $0.isDone == true }.count
-        let sectionCount = items.filter {
-            $0.category == section
-        }.count
-
-        return Text("\(section) (\(doneCount) of \(sectionCount) items done)")
-    }
+//    private func sectionText(_ section: String) -> Text {
+//        let doneCount = items.filter { $0.category == section && $0.isDone == true }.count
+//        let sectionCount = items.filter {
+//            $0.category == section
+//        }.count
+//
+//        return Text("\(section) (\(doneCount) of \(sectionCount) items done)")
+//    }
         
-    init() {
-        UINavigationBarAppearance().configureWithTransparentBackground()
-    }
+//    init() {
+//        UINavigationBarAppearance().configureWithTransparentBackground()
+//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
