@@ -57,6 +57,7 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
+    
     static func deleteChecklist(context: NSManagedObjectContext) {
 
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ChecklistItem")
@@ -100,7 +101,7 @@ struct PersistenceController {
 
         return try decoder.decode(T.self, from: data)
     }
-
+    
 }
 
 extension CodingUserInfoKey {
