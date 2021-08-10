@@ -28,7 +28,7 @@ struct ChecklistSection: View {
                 print("Delete \(indexSet)!")
                 deleteItems(at: indexSet)
             })
-            .navigationBarItems(leading: EditButton())
+            //.navigationBarItems(leading: EditButton())
         }
         .padding([.leading], 16)
     }
