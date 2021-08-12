@@ -12,26 +12,30 @@ struct ChecklistSection: View {
     @State var category: String = ""
     @State var showCompleted: Bool = true
 
-    private var fetchRequest: FetchRequest<ChecklistItem>
+    @FetchRequest var sectionItems: FetchedResults<ChecklistItem>
         
     var body: some View {
-        Section(header: Text(category)) {
-            ForEach(fetchRequest.wrappedValue, id: \.self) { listItem in
+        print("body category = \(category)")
+        return Section(header: Text(category)) {
+            ForEach(sectionItems, id: \.self) { listItem in
                 NavigationLink(destination: DetailView(listItem: listItem)) {
                     ChecklistRow(item: listItem)
                 }
             }
-            // Does this do anything?
+            // This is not working. Swipe item right-to-left.
+            // Should Work with ForEach or List
             .onDelete(perform: { indexSet in
                 print("Delete \(indexSet)!")
                 deleteItems(at: indexSet)
             })
-        }.padding([.leading], 16)
+            //.navigationBarItems(leading: EditButton())
+        }
+        .padding([.leading], 16)
     }
     
     func deleteItems(at offsets: IndexSet) {
         print("deleteItems at \(offsets)")
-        //items.remove(atOffsets: offsets)  // TODO:
+        //sectionItems.remove(atOffsets: offsets)
     }
     
     // category == category AND (isdone == false || showCompleted == true)
@@ -41,11 +45,13 @@ struct ChecklistSection: View {
         let p3 = NSPredicate(format: "isDone = %d", showCompleted)
         let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [p2,p3])
         let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1,orPredicate])
-        self.fetchRequest = FetchRequest(
+        self._sectionItems = FetchRequest(
+            entity: ChecklistItem.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
             predicate: andPredicate)
         self.category = category
         self.showCompleted = showCompleted
+        print("End of init category = \(category)")
     }
 }
 
