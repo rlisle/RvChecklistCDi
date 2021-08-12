@@ -28,6 +28,12 @@ struct MenuView: View {
                         showMenu = false
                     }
                 })
+                MenuRow(title: "Uncheck All", iconName: "square", action: {
+                    uncheckAll()
+                    withAnimation {
+                        showMenu = false
+                    }
+                })
                 .padding(.bottom, 60)
             }
             
@@ -45,7 +51,7 @@ struct MenuView: View {
             Section(header: Text("Danger!")){
 
                 MenuRow(title: "Reset List", iconName: "clear", action: {
-                    clearChecklist()
+                    resetChecklist()
                     withAnimation {
                         showMenu = false
                     }
@@ -63,7 +69,7 @@ struct MenuView: View {
         .edgesIgnoringSafeArea(.all)
     }
     
-    private func clearChecklist() {
+    private func resetChecklist() {
         do {
             
             //TODO: issue warning that all photos will be lost
@@ -73,6 +79,16 @@ struct MenuView: View {
             try viewContext.save()
         } catch {
             print("Error reseting checklist \(error)")
+        }
+    }
+    
+    private func uncheckAll() {
+        do {
+            print("Uncheck all checkboxes")
+            PersistenceController.shared.uncheckChecklist()
+            try viewContext.save()
+        } catch {
+            print("Error uncheck checklist \(error)")
         }
     }
 

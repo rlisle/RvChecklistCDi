@@ -67,13 +67,6 @@ struct AddItem: View {
             let nsError = error as NSError
             print("Error saving created item entities: \(nsError), \(nsError.userInfo)")
         }
-        
-        do {
-            try PersistenceController.reloadChecklist(context: viewContext)
-            try viewContext.save()
-        } catch {
-            print("Error reloading new trip checklist")
-        }
     }
 }
 

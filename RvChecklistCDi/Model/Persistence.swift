@@ -57,6 +57,23 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
+    func uncheckChecklist() {
+        print("Clearing all checkboxes")
+        let request = NSBatchUpdateRequest(entityName: "ChecklistItem")
+//        let predicate = NSPredicate(format: "isDone = true")
+//        request.predicate = predicate
+        request.propertiesToUpdate = ["isDone" : false]
+        request.resultType = .updatedObjectIDsResultType
+        do {
+            let result = try container.viewContext.execute(request) as? NSBatchUpdateResult
+            let objectIDArray = result?.result as? [NSManagedObjectID]
+            let changes = [NSUpdatedObjectsKey : objectIDArray]
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [container.viewContext])
+            
+        } catch {
+            print("Error unchecking checklist items")
+        }
+    }
     
     static func deleteChecklist(context: NSManagedObjectContext) {
 
