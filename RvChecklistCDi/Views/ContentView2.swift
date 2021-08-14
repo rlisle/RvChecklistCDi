@@ -39,15 +39,15 @@ struct ContentView2: View {
             GeometryReader { geometry in
 
                 VStack {
-                    
-//                  HeaderView()
+
+                    // Header
                     ZStack(alignment: .topLeading, content: {
                         Image("truck-rv")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     })
 
-                    //
+                    // Checklist Sections
                     List {
                         
                         Section(header: Text("Pre-Trip")) {
@@ -58,9 +58,9 @@ struct ContentView2: View {
                                   ChecklistRow(item: item)
                               }
                                 
-                            } // ForEach
+                            }
 
-                        } // Pre-Trip Section
+                        } // Section
 
                         Section(header: Text("Departure")) {
                             
@@ -70,9 +70,9 @@ struct ContentView2: View {
                                   ChecklistRow(item: item)
                               }
                                 
-                            } // ForEach
+                            }
 
-                        } // Pre-Trip Section
+                        } // Section
 
                         Section(header: Text("Arrival")) {
                             
@@ -82,9 +82,9 @@ struct ContentView2: View {
                                   ChecklistRow(item: item)
                               }
                                 
-                            } // ForEach
+                            }
 
-                        } // Pre-Trip Section
+                        } // Section
 
                     } // List
                     .padding(.top, -8)
