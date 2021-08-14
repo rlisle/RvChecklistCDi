@@ -65,7 +65,7 @@ struct ContentView: View {
 //                        }
                         .animation(.easeInOut)
                         .overlay(items.isEmpty ? Text("No items found") : nil, alignment: .center)
-                    }
+                    } // VStack
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .offset(x: self.showMenu ? geometry.size.width/2 : 0)
                     .disabled(self.showMenu ? true : false)
@@ -78,7 +78,7 @@ struct ContentView: View {
                             .transition(.move(edge: .leading))
                     }
 
-                }
+                } // ZStack
                 .gesture(drag)
                 .blackNavigation
                 .navigationBarTitle("RV Checklist", displayMode: .inline)
@@ -100,8 +100,8 @@ struct ContentView: View {
                             .imageScale(.large)
                     }
                 ))
-            }
-        }
+            } // GeometryReader
+        } // NavigationView
         .accentColor( .black)   // Sets back button color
 //        .onAppear {
 //            print("On Appear")

@@ -42,10 +42,10 @@ struct EditItem: View {
                     Spacer()
                 }
                 .padding(10)
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .stroke(lineWidth: 2.0)
-                )
+//                .overlay(
+//                        RoundedRectangle(cornerRadius: 10.0)
+//                            .stroke(lineWidth: 2.0)
+//                )
             }
         }
         .background(Color(red: 32/255, green: 32/255, blue: 32/255))
