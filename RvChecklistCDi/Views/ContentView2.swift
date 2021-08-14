@@ -13,8 +13,25 @@ struct ContentView2: View {
     @State private var menuSelection: String? = nil
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
-    private var items: FetchedResults<ChecklistItem>
+        entity: ChecklistItem.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
+        predicate: NSPredicate(format: "category == %@", "Pre-Trip")
+        )
+    private var preTripItems: FetchedResults<ChecklistItem>
+
+    @FetchRequest(
+        entity: ChecklistItem.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
+        predicate: NSPredicate(format: "category == %@", "Departure")
+        )
+    private var departItems: FetchedResults<ChecklistItem>
+
+    @FetchRequest(
+        entity: ChecklistItem.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
+        predicate: NSPredicate(format: "category == %@", "Arrival")
+        )
+    private var arriveItems: FetchedResults<ChecklistItem>
 
     var body: some View {
         NavigationView {
@@ -35,17 +52,40 @@ struct ContentView2: View {
                         
                         Section(header: Text("Pre-Trip")) {
                             
-                            ForEach(items, id: \.self) { item in
+                            ForEach(preTripItems, id: \.self) { item in
                                 
-                                Text(item.wrappedTitle)
-//
-//                              NavigationLink(destination: DetailView(listItem: item)) {
-//                                  ChecklistRow(item: item)
-//                              }
+                              NavigationLink(destination: DetailView(listItem: item)) {
+                                  ChecklistRow(item: item)
+                              }
+                                
                             } // ForEach
 
-                        } // Section
-                        
+                        } // Pre-Trip Section
+
+                        Section(header: Text("Departure")) {
+                            
+                            ForEach(departItems, id: \.self) { item in
+                                
+                              NavigationLink(destination: DetailView(listItem: item)) {
+                                  ChecklistRow(item: item)
+                              }
+                                
+                            } // ForEach
+
+                        } // Pre-Trip Section
+
+                        Section(header: Text("Arrival")) {
+                            
+                            ForEach(arriveItems, id: \.self) { item in
+                                
+                              NavigationLink(destination: DetailView(listItem: item)) {
+                                  ChecklistRow(item: item)
+                              }
+                                
+                            } // ForEach
+
+                        } // Pre-Trip Section
+
                     } // List
                     .padding(.top, -8)
                     .listStyle(PlainListStyle())
@@ -82,6 +122,7 @@ struct ContentView2: View {
         .accentColor( .black)   // Sets back button color
 
     } // Body
+    
 }
 
 struct ContentView2_Previews: PreviewProvider {
