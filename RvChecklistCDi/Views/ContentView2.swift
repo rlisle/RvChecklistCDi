@@ -60,7 +60,7 @@ struct ContentView2: View {
                                 
                             }
 
-                        } // Section
+                        } // Pre-Trip Section
 
                         Section(header: Text("Departure")) {
                             
@@ -72,7 +72,7 @@ struct ContentView2: View {
                                 
                             }
 
-                        } // Section
+                        } // Departure Section
 
                         Section(header: Text("Arrival")) {
                             
@@ -84,7 +84,7 @@ struct ContentView2: View {
                                 
                             }
 
-                        } // Section
+                        } // Arrival Section
 
                     } // List
                     .padding(.top, -8)
