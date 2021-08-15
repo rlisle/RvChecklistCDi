@@ -22,21 +22,30 @@ struct ChecklistRow: View {
 }
 
 struct ChecklistRowPreviewContainer : View {
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)])
-    private var items: FetchedResults<ChecklistItem>
+
+    @StateObject var item = ChecklistItem(context: PersistenceController.preview.container.viewContext,
+                                     title: "Test TODO Item",
+                                     instructions: "Steps 1, 2, 3...",
+                                     photo: UIImage(systemName: "photo")!,
+                                     sequence: 1,
+                                     category: "Pre-Trip")
 
      var body: some View {
-        ChecklistRow(item: items.first!)
+        ChecklistRow(item: item)
      }
 }
 
 struct ChecklistRow_Previews: PreviewProvider {
     static var previews: some View {
         ChecklistRowPreviewContainer()
-        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//        ChecklistRow(item: ChecklistItem(context: PersistenceController.preview.container.viewContext,
+//                                         title: "Test TODO Item",
+//                                         instructions: "Steps 1, 2, 3...",
+//                                         photo: UIImage(systemName: "photo")!,
+//                                         sequence: 1,
+//                                         category: "Pre-Trip"))
         .previewLayout(.fixed(width: 320, height: 40))
-        .previewDisplayName("Checkmark")
+        .previewDisplayName("ChecklistRow")
     }
 }

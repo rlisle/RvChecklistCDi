@@ -10,10 +10,14 @@ import SwiftUI
 struct HeaderView: View {
     
     var body: some View {
+        
+        // TODO: Shrink header when scrolling
         ZStack(alignment: .topLeading, content: {
+            
             Image("truck-rv")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+            
         })
     }
 }

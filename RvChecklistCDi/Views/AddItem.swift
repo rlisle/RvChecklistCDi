@@ -31,7 +31,7 @@ struct AddItem: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        createItemEntities()
+                        createChecklistItem()
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Add Item")
@@ -40,10 +40,10 @@ struct AddItem: View {
                     Spacer()
                 }
                 .padding(10)
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .stroke(lineWidth: 2.0)
-                )
+//                .overlay(
+//                        RoundedRectangle(cornerRadius: 10.0)
+//                            .stroke(lineWidth: 2.0)
+//                )
             }
         }
         .background(Color(red: 32/255, green: 32/255, blue: 32/255))
@@ -52,7 +52,7 @@ struct AddItem: View {
         .navigationBarTitle("Add Item", displayMode: .inline)
     }
 
-    private func createItemEntities() {
+    private func createChecklistItem() {
         ChecklistItem.insert(
             in: viewContext,
             title: title,

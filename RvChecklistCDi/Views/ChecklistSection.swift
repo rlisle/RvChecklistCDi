@@ -15,8 +15,7 @@ struct ChecklistSection: View {
     @FetchRequest var sectionItems: FetchedResults<ChecklistItem>
         
     var body: some View {
-        print("body category = \(category)")
-        return Section(header: Text(category)) {
+        Section(header: Text(category)) {
             ForEach(sectionItems, id: \.self) { listItem in
                 NavigationLink(destination: DetailView(listItem: listItem)) {
                     ChecklistRow(item: listItem)
@@ -51,7 +50,6 @@ struct ChecklistSection: View {
             predicate: andPredicate)
         self.category = category
         self.showCompleted = showCompleted
-        print("End of init category = \(category)")
     }
 }
 
