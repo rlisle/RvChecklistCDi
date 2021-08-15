@@ -78,7 +78,7 @@ struct ContentView2: View {
                                 HStack {
                                     Text("Pre-Trip")
                                     Spacer()
-                                    Text("(\(numPreTripToGo()) to go)")
+                                Text("(\(numPreTripToGo()) of \(preTripItems.count) to go)")
                             }) {
                                 
                                 
@@ -97,8 +97,13 @@ struct ContentView2: View {
                             } // Pre-Trip Section
                             .textCase(nil)
                             
-                            Section(header: Text("Departure (\(numDepartToGo()) to go)")) {
-                                
+                            Section(header:
+                                HStack {
+                                    Text("Departure")
+                                    Spacer()
+                                    Text("(\(numDepartToGo()) of \(departItems.count) to go)")
+                            }) {
+
                                 if(departItems.count == 0) {
                                     Text("No Depart items found")
                                 } else {
@@ -113,8 +118,13 @@ struct ContentView2: View {
                             } // Departure Section
                             .textCase(nil)
                             
-                            Section(header: Text("Arrival (\(numArriveToGo()) to go)")) {
-                                
+                            Section(header:
+                                HStack {
+                                    Text("Arrival")
+                                    Spacer()
+                                    Text("(\(numArriveToGo()) of \(arriveItems.count) to go)")
+                            }) {
+
                                 if(arriveItems.count == 0) {
                                     Text("No Arrival items found")
                                 } else {
