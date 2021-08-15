@@ -74,12 +74,18 @@ struct ContentView2: View {
                         // Checklist Sections
                         List {
                             
-                            Section(header: Text("Pre-Trip")) {
+                            Section(header:
+                                HStack {
+                                    Text("Pre-Trip")
+                                    Spacer()
+                                    Text("(\(numPreTripToGo()) to go)")
+                            }) {
+                                
                                 
                                 if(preTripItems.count == 0) {
                                     Text("No Pre-Trip items found")
                                 } else {
-                                    ForEach(preTripItems, id: \.self) { item in
+                                    ForEach(preTripItems.filter { isShown(item:$0) }, id: \.self) { item in
                                         
                                       NavigationLink(destination: DetailView(listItem: item)) {
                                           ChecklistRow(item: item)
@@ -89,13 +95,14 @@ struct ContentView2: View {
 
 
                             } // Pre-Trip Section
-
-                            Section(header: Text("Departure")) {
+                            .textCase(nil)
+                            
+                            Section(header: Text("Departure (\(numDepartToGo()) to go)")) {
                                 
                                 if(departItems.count == 0) {
                                     Text("No Depart items found")
                                 } else {
-                                    ForEach(departItems, id: \.self) { item in
+                                    ForEach(departItems.filter { isShown(item:$0) }, id: \.self) { item in
                                         
                                       NavigationLink(destination: DetailView(listItem: item)) {
                                           ChecklistRow(item: item)
@@ -104,13 +111,14 @@ struct ContentView2: View {
                                 }
 
                             } // Departure Section
-
-                            Section(header: Text("Arrival")) {
+                            .textCase(nil)
+                            
+                            Section(header: Text("Arrival (\(numArriveToGo()) to go)")) {
                                 
                                 if(arriveItems.count == 0) {
                                     Text("No Arrival items found")
                                 } else {
-                                    ForEach(arriveItems, id: \.self) { item in
+                                    ForEach(arriveItems.filter { isShown(item:$0) }, id: \.self) { item in
                                         
                                       NavigationLink(destination: DetailView(listItem: item)) {
                                           ChecklistRow(item: item)
@@ -119,6 +127,7 @@ struct ContentView2: View {
                                 }
 
                             } // Arrival Section
+                            .textCase(nil)
 
                         } // List
                         .padding(.top, -8)
@@ -176,6 +185,27 @@ struct ContentView2: View {
         
     } // Body
     
+    func numPreTripToGo() -> Int {
+        let total = preTripItems.count
+        let done = preTripItems.filter { $0.isDone }.count
+        return total - done
+    }
+    
+    func numDepartToGo() -> Int {
+        let total = departItems.count
+        let done = departItems.filter { $0.isDone }.count
+        return total - done
+    }
+    
+    func numArriveToGo() -> Int {
+        let total = arriveItems.count
+        let done = arriveItems.filter { $0.isDone }.count
+        return total - done
+    }
+
+    func isShown(item: ChecklistItem) -> Bool {
+        return showCompleted == true || item.isDone == false
+    }
 }
 
 struct ContentView2_Previews: PreviewProvider {
