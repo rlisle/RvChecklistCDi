@@ -10,6 +10,8 @@ import CoreData
 
 struct ContentView2: View {
     
+    @State private var showCompleted = true
+    @State var showMenu = false
     @State private var menuSelection: String? = nil
 
     @FetchRequest(
@@ -34,86 +36,133 @@ struct ContentView2: View {
     private var arriveItems: FetchedResults<ChecklistItem>
 
     var body: some View {
+        
+        // Close side menu
+        let drag = DragGesture()
+            .onEnded {
+                if $0.translation.width < -100 {
+                    withAnimation {
+                        self.showMenu = false
+                    }
+                }
+            }
+
         NavigationView {
             
             GeometryReader { geometry in
 
-                VStack {
-
-                    // Header
-                    ZStack(alignment: .topLeading, content: {
-                        Image("truck-rv")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    })
-
-                    // Checklist Sections
-                    List {
-                        
-                        Section(header: Text("Pre-Trip")) {
-                            
-                            ForEach(preTripItems, id: \.self) { item in
-                                
-                              NavigationLink(destination: DetailView(listItem: item)) {
-                                  ChecklistRow(item: item)
-                              }
-                                
-                            }
-
-                        } // Pre-Trip Section
-
-                        Section(header: Text("Departure")) {
-                            
-                            ForEach(departItems, id: \.self) { item in
-                                
-                              NavigationLink(destination: DetailView(listItem: item)) {
-                                  ChecklistRow(item: item)
-                              }
-                                
-                            }
-
-                        } // Departure Section
-
-                        Section(header: Text("Arrival")) {
-                            
-                            ForEach(arriveItems, id: \.self) { item in
-                                
-                              NavigationLink(destination: DetailView(listItem: item)) {
-                                  ChecklistRow(item: item)
-                              }
-                                
-                            }
-
-                        } // Arrival Section
-
-                    } // List
-                    .padding(.top, -8)
-                    .listStyle(PlainListStyle())
-
+                ZStack(alignment: .leading) {   // for sidemenu
                     
-                } // VStack
-                .blackNavigation
-                .navigationBarTitle("RV Checklist", displayMode: .inline)
-                .navigationBarItems(
-//                    leading: (
-//                        Button(action: {
-//                            withAnimation {
-//                                self.showMenu.toggle()
-//                            }
-//                        }) {
-//                            Image(systemName: "line.horizontal.3")
-//                                .imageScale(.large)
-//                        }
-//                    ),
-                    trailing: (
-                        Button(action: {
-                            menuSelection = "Add"
-                        }) {
-                            Image(systemName: "plus")
-                                .imageScale(.large)
+                    Group { // Was below following VStack
+                        // Side menu selected destinations
+                        NavigationLink(destination: AddItem(),
+                                       tag: "Add",
+                                       selection: $menuSelection,
+                                       label: { EmptyView() })
+                    }
+
+                    VStack {
+
+                        // Header
+                        // TODO: Shrink header when scrolling
+                        ZStack(alignment: .topLeading, content: {
+                            Image("truck-rv")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        })
+
+                        // Checklist Sections
+                        List {
+                            
+                            Section(header: Text("Pre-Trip")) {
+                                
+                                if(preTripItems.count == 0) {
+                                    Text("No Pre-Trip items found")
+                                } else {
+                                    ForEach(preTripItems, id: \.self) { item in
+                                        
+                                      NavigationLink(destination: DetailView(listItem: item)) {
+                                          ChecklistRow(item: item)
+                                      }
+                                    }
+                                }
+
+
+                            } // Pre-Trip Section
+
+                            Section(header: Text("Departure")) {
+                                
+                                if(departItems.count == 0) {
+                                    Text("No Depart items found")
+                                } else {
+                                    ForEach(departItems, id: \.self) { item in
+                                        
+                                      NavigationLink(destination: DetailView(listItem: item)) {
+                                          ChecklistRow(item: item)
+                                      }
+                                    }
+                                }
+
+                            } // Departure Section
+
+                            Section(header: Text("Arrival")) {
+                                
+                                if(arriveItems.count == 0) {
+                                    Text("No Arrival items found")
+                                } else {
+                                    ForEach(arriveItems, id: \.self) { item in
+                                        
+                                      NavigationLink(destination: DetailView(listItem: item)) {
+                                          ChecklistRow(item: item)
+                                      }
+                                    }
+                                }
+
+                            } // Arrival Section
+
+                        } // List
+                        .padding(.top, -8)
+                        .listStyle(PlainListStyle())    // Changed from GroupedListStyle
+                        .animation(.easeInOut)
+                        .toolbar {
+                            EditButton()
                         }
-                    )
-                ) // navigationBarItems
+
+                        
+                    } // VStack
+                    .blackNavigation
+                    .navigationBarTitle("RV Checklist", displayMode: .inline)
+                    .navigationBarItems(
+                        leading: (
+                            Button(action: {
+                                withAnimation {
+                                    self.showMenu.toggle()
+                                }
+                            }) {
+                                Image(systemName: "line.horizontal.3")
+                                    .imageScale(.large)
+                            }
+                        ),
+                        trailing: (
+                            Button(action: {
+                                menuSelection = "Add"
+                            }) {
+                                Image(systemName: "plus")
+                                    .imageScale(.large)
+                            }
+                        )
+                    ) // navigationBarItems
+
+                    if self.showMenu {
+                        MenuView(showMenu: $showMenu,
+                                 showCompleted: $showCompleted,
+                                 selection: $menuSelection)
+                            .frame(width: geometry.size.width/2)
+                            .transition(.move(edge: .leading))
+                    }
+
+                } // ZStack for sidemenu
+                .gesture(drag)
 
                 
             } // GeometryReader
@@ -121,6 +170,8 @@ struct ContentView2: View {
         } // NavigationView
         .accentColor( .black)   // Sets back button color
 
+        
+        
     } // Body
     
 }
