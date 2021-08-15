@@ -13,7 +13,6 @@
 		27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D662611F92200DDF0C5 /* HeaderView.swift */; };
 		27002D79261211BB00DDF0C5 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27002D78261211BB00DDF0C5 /* AddItem.swift */; };
 		270853EF26B0B5D900B69766 /* NavControllerRemoveBackText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */; };
-		271EDD1926C74C85004F4541 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271EDD1826C74C85004F4541 /* ContentView2.swift */; };
 		2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2720D05A26B5B62B00320274 /* StickyHeader.swift */; };
 		272FB2362619E129001FB6DC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FB2352619E129001FB6DC /* DetailView.swift */; };
 		2751E0EC26BB7E5D00ED9958 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751E0EB26BB7E5D00ED9958 /* ImagePicker.swift */; };
@@ -59,7 +58,6 @@
 		27002D662611F92200DDF0C5 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		27002D78261211BB00DDF0C5 /* AddItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
 		270853EE26B0B5D900B69766 /* NavControllerRemoveBackText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerRemoveBackText.swift; sourceTree = "<group>"; };
-		271EDD1826C74C85004F4541 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		2720D05A26B5B62B00320274 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		272FB2352619E129001FB6DC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2751E0EB26BB7E5D00ED9958 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				2783316326111D2E009E98F0 /* ContentView.swift */,
-				271EDD1826C74C85004F4541 /* ContentView2.swift */,
 				27002D662611F92200DDF0C5 /* HeaderView.swift */,
 				27B76A452629B26800E1DCDB /* ChecklistSection.swift */,
 				27002D612611F7E500DDF0C5 /* ChecklistRow.swift */,
@@ -376,7 +373,6 @@
 				272FB2362619E129001FB6DC /* DetailView.swift in Sources */,
 				2751F9EF262EEB2800A5F10B /* EditItem.swift in Sources */,
 				2720D05B26B5B62B00320274 /* StickyHeader.swift in Sources */,
-				271EDD1926C74C85004F4541 /* ContentView2.swift in Sources */,
 				2783316226111D2E009E98F0 /* RvChecklistCDiApp.swift in Sources */,
 				2783319D2611205E009E98F0 /* ChecklistItem+CoreDataProperties.swift in Sources */,
 				27002D672611F92200DDF0C5 /* HeaderView.swift in Sources */,

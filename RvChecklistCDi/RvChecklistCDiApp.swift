@@ -14,7 +14,7 @@ struct RvChecklistCDiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView2()
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
