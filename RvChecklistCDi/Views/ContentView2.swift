@@ -130,29 +130,9 @@ struct ContentView2: View {
 
                         
                     } // VStack
-                    .blackNavigation
-                    .navigationBarTitle("RV Checklist", displayMode: .inline)
-                    .navigationBarItems(
-                        leading: (
-                            Button(action: {
-                                withAnimation {
-                                    self.showMenu.toggle()
-                                }
-                            }) {
-                                Image(systemName: "line.horizontal.3")
-                                    .imageScale(.large)
-                            }
-                        ),
-                        trailing: (
-                            Button(action: {
-                                menuSelection = "Add"
-                            }) {
-                                Image(systemName: "plus")
-                                    .imageScale(.large)
-                            }
-                        )
-                    ) // navigationBarItems
-
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .offset(x: self.showMenu ? geometry.size.width/2 : 0)
+                    .disabled(self.showMenu ? true : false)
                     if self.showMenu {
                         MenuView(showMenu: $showMenu,
                                  showCompleted: $showCompleted,
@@ -163,6 +143,28 @@ struct ContentView2: View {
 
                 } // ZStack for sidemenu
                 .gesture(drag)
+                .blackNavigation
+                .navigationBarTitle("RV Checklist", displayMode: .inline)
+                .navigationBarItems(
+                    leading: (
+                        Button(action: {
+                            withAnimation {
+                                self.showMenu.toggle()
+                            }
+                        }) {
+                            Image(systemName: "line.horizontal.3")
+                                .imageScale(.large)
+                        }
+                    ),
+                    trailing: (
+                        Button(action: {
+                            menuSelection = "Add"
+                        }) {
+                            Image(systemName: "plus")
+                                .imageScale(.large)
+                        }
+                    )
+                ) // navigationBarItems
 
                 
             } // GeometryReader

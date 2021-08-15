@@ -58,7 +58,7 @@ struct ContentView: View {
                             ChecklistSection(category: "Arrival",
                                              showCompleted: showCompleted)
                             
-                        }
+                        } // List
                         .listStyle(GroupedListStyle())
 //                        .toolbar {
 //                            EditButton()
