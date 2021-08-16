@@ -9,7 +9,9 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    
+
+    @Environment(\.managedObjectContext) private var viewContext
+
     @State private var showCompleted = true
     @State var showMenu = false
     @State private var menuSelection: String? = nil
@@ -85,6 +87,7 @@ struct ContentView: View {
                                           ChecklistRow(item: item)
                                       }
                                     }
+                                    .onDelete(perform: deletePreTripItem)
                                 }
 
 
@@ -107,6 +110,7 @@ struct ContentView: View {
                                           ChecklistRow(item: item)
                                       }
                                     }
+                                    .onDelete(perform: deleteDepartItem)
                                 }
 
                             } // Departure Section
@@ -128,6 +132,7 @@ struct ContentView: View {
                                           ChecklistRow(item: item)
                                       }
                                     }
+                                    .onDelete(perform: deleteArriveItem)
                                 }
 
                             } // Arrival Section
@@ -188,6 +193,33 @@ struct ContentView: View {
         
         
     } // Body
+    
+    private func deletePreTripItem(at offsets: IndexSet) {
+        guard let index = offsets.first else {
+            return
+        }
+        print("Deleting Pre-Trip item \(index)")
+        viewContext.delete(preTripItems[index])
+        try? viewContext.save()
+    }
+    
+    private func deleteDepartItem(at offsets: IndexSet) {
+        guard let index = offsets.first else {
+            return
+        }
+        print("Deleting Depart item \(index)")
+        viewContext.delete(departItems[index])
+        try? viewContext.save()
+    }
+    
+    private func deleteArriveItem(at offsets: IndexSet) {
+        guard let index = offsets.first else {
+            return
+        }
+        print("Deleting Arrive item \(index)")
+        viewContext.delete(arriveItems[index])
+        try? viewContext.save()
+    }
     
     func numPreTripToGo() -> Int {
         let total = preTripItems.count
