@@ -39,9 +39,13 @@ struct DeleteItem: View {
                         Button(action: {
                             deleteItem()
                             self.presentationMode.wrappedValue.dismiss()
-                            self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Delete Item")
+                        }
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Cancel")
                         }
                         Spacer()
                     }

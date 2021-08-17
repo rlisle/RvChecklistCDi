@@ -18,6 +18,10 @@ struct EditItem: View {
     @State private var instructions = "Instructions..."
     @State private var category = "Pre-Trip"
 
+    @State private var originalTitle = "New TODO:"
+    @State private var originalInstructions = "Instructions..."
+    @State private var originalCategory = "Pre-Trip"
+
     var body: some View {
         Form {
             Section(header: Text("Title")) {
@@ -33,12 +37,21 @@ struct EditItem: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        updateItemEntities()
+                        updateItemEntities()    // Is this necessary?
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Update Item")
                     }
                     .disabled(title.isEmpty)
+                    Button(action: {
+                        // Undo any changes
+                        title = originalTitle
+                        instructions = originalInstructions
+                        category = originalCategory
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Cancel")
+                    }
                     Spacer()
                 }
                 .padding(10)
@@ -49,11 +62,24 @@ struct EditItem: View {
         .blackNavigation
         .navigationBarTitle("Edit Trip", displayMode: .inline)
         
-        .onAppear() {
-            title = item.wrappedTitle
-            instructions = item.wrappedInstructions
-            category = item.wrappedCategory
-        }
+//        .onAppear() {
+//            title = item.wrappedTitle
+//            originalTitle = title
+//            instructions = item.wrappedInstructions
+//            originalInstructions = instructions
+//            category = item.wrappedCategory
+//            originalCategory = category
+//        }
+    }
+    
+    public init(item: ChecklistItem) {
+        self.item = item
+        title = item.wrappedTitle
+        originalTitle = title
+        instructions = item.wrappedInstructions
+        originalInstructions = instructions
+        category = item.wrappedCategory
+        originalCategory = category
     }
 
     private func updateItemEntities() {

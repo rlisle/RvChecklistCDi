@@ -37,6 +37,11 @@ struct AddItem: View {
                         Text("Add Item")
                     }
                     .disabled(title.isEmpty)
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Cancel")
+                    }
                     Spacer()
                 }
                 .padding(10)
