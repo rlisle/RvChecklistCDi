@@ -14,6 +14,7 @@ struct DetailView: View {
     @State private var isShowingImagePicker = false
     @State private var isShowingCamera = false
     @State private var isShowingEdit = false
+    @State private var isShowingDelete = false
 
     @StateObject var listItem: ChecklistItem
     
@@ -50,7 +51,7 @@ struct DetailView: View {
                 Button(action: {
                     isShowingEdit = true
                 }) {
-                    Image(systemName: "pencil.circle")
+                    Image(systemName: "pencil")
                         .imageScale(.large)
                 }
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -61,6 +62,13 @@ struct DetailView: View {
                             .imageScale(.large)
                     }
                 }
+                Button(action: {
+                    isShowingDelete = true
+                }) {
+                    Image(systemName: "trash")
+                        .imageScale(.large)
+                }
+
             }
         )
         .sheet(isPresented:  $isShowingImagePicker, onDismiss: loadImage) {
@@ -71,6 +79,9 @@ struct DetailView: View {
         }
         .sheet(isPresented:  $isShowingEdit, onDismiss: loadImage) {
             EditItem(item: listItem)
+        }
+        .sheet(isPresented:  $isShowingDelete, onDismiss: loadImage) {
+            DeleteItem(item: listItem)
         }
     }
     

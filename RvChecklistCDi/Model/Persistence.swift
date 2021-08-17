@@ -68,10 +68,21 @@ struct PersistenceController {
             let result = try container.viewContext.execute(request) as? NSBatchUpdateResult
             let objectIDArray = result?.result as? [NSManagedObjectID]
             let changes = [NSUpdatedObjectsKey : objectIDArray]
-            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [container.viewContext])
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes as [AnyHashable : Any], into: [container.viewContext])
             
         } catch {
             print("Error unchecking checklist items")
+        }
+    }
+    
+    static func deleteItem(item: ChecklistItem, context: NSManagedObjectContext) {
+
+        context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            print("Error saving deleted item: \(nsError), \(nsError.userInfo)")
         }
     }
     
