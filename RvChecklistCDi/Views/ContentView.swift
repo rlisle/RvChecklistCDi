@@ -85,6 +85,8 @@ struct ContentView: View {
                                           ChecklistRow(item: item)
                                       }
                                     }
+                                    .onMove(perform: onMove)
+                                    .onDelete(perform: onDelete)
                                 }
 
 
@@ -107,6 +109,8 @@ struct ContentView: View {
                                           ChecklistRow(item: item)
                                       }
                                     }
+                                    .onMove(perform: onMove)
+                                    .onDelete(perform: onDelete)
                                 }
 
                             } // Departure Section
@@ -128,6 +132,8 @@ struct ContentView: View {
                                           ChecklistRow(item: item)
                                       }
                                     }
+                                    .onMove(perform: onMove)
+                                    .onDelete(perform: onDelete)
                                 }
 
                             } // Arrival Section
@@ -137,10 +143,6 @@ struct ContentView: View {
                         .padding(.top, -8)
                         .listStyle(PlainListStyle())    // Changed from GroupedListStyle
                         .animation(.easeInOut)
-                        .toolbar {
-                            EditButton()
-                        }
-
                         
                     } // VStack
                     .frame(width: geometry.size.width, height: geometry.size.height)
@@ -170,11 +172,14 @@ struct ContentView: View {
                         }
                     ),
                     trailing: (
-                        Button(action: {
-                            menuSelection = "Add"
-                        }) {
-                            Image(systemName: "plus")
-                                .imageScale(.large)
+                        HStack {
+                            EditButton()
+                            Button(action: {
+                                menuSelection = "Add"
+                            }) {
+                                Image(systemName: "plus")
+                                    .imageScale(.large)
+                            }
                         }
                     )
                 ) // navigationBarItems
@@ -189,6 +194,16 @@ struct ContentView: View {
         
     } // Body
     
+    private func onDelete(offsets: IndexSet) {
+        print("onDelete")
+        //items.remove(atOffsets: offsets)
+    }
+
+    private func onMove(source: IndexSet, destination: Int) {
+        print("onMove")
+        //items.move(fromOffsets: source, toOffset: destination)
+    }
+
     func numPreTripToGo() -> Int {
         let total = preTripItems.count
         let done = preTripItems.filter { $0.isDone }.count

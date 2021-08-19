@@ -21,13 +21,6 @@ struct ChecklistSection: View {
                     ChecklistRow(item: listItem)
                 }
             }
-            // This is not working. Swipe item right-to-left.
-            // Should Work with ForEach or List
-            .onDelete(perform: { indexSet in
-                print("Delete \(indexSet)!")
-                deleteItems(at: indexSet)
-            })
-            //.navigationBarItems(leading: EditButton())
         }
         .padding([.leading], 16)
     }
