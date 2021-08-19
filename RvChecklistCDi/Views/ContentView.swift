@@ -13,28 +13,15 @@ struct ContentView: View {
     @State private var showCompleted = true
     @State var showMenu = false
     @State private var menuSelection: String? = nil
-    @State private var phase = 0
+    @State private var phase = "Pre-Trip"
+    var phases = ["Pre-Trip", "Departure", "Arrival"]
 
     @FetchRequest(
         entity: ChecklistItem.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
-        predicate: NSPredicate(format: "category == %@", "Pre-Trip")
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)]
+//        predicate: NSPredicate(format: "category == %@", "Pre-Trip")
         )
-    private var preTripItems: FetchedResults<ChecklistItem>
-
-    @FetchRequest(
-        entity: ChecklistItem.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
-        predicate: NSPredicate(format: "category == %@", "Departure")
-        )
-    private var departItems: FetchedResults<ChecklistItem>
-
-    @FetchRequest(
-        entity: ChecklistItem.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)],
-        predicate: NSPredicate(format: "category == %@", "Arrival")
-        )
-    private var arriveItems: FetchedResults<ChecklistItem>
+    private var items: FetchedResults<ChecklistItem>
 
     var body: some View {
         
@@ -68,30 +55,30 @@ struct ContentView: View {
                             .padding(.bottom, -8)
 
                         Picker(selection: $phase, label: Text("Phase")) {
-                            Text("Pre-Trip").tag(0)
-                            Text("Depart").tag(1)
-                            Text("Arrive").tag(2)
+                            ForEach(phases, id: \.self) {
+                                Text($0)
+                            }
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         .padding(.bottom, 8)
 //                        .foregroundColor(.white)
 //                        .background(Color.black)
                         
-                        // Checklist Sections
+                        // Checklist Section
                         List {
                             
                             Section(header:
                                 HStack {
-                                    Text("Pre-Trip")
+                                    Text(phase)
                                     Spacer()
-                                Text("(\(numPreTripToGo()) of \(preTripItems.count) to go)")
+                                Text("(\(numSelectedToGo()) of \(numSelectedItems()) to go)")
                             }) {
                                 
                                 
-                                if(preTripItems.count == 0) {
-                                    Text("No Pre-Trip items found")
+                                if(numSelectedItems() == 0) {
+                                    Text("No \(phase) items found")
                                 } else {
-                                    ForEach(preTripItems.filter { isShown(item:$0) }, id: \.self) { item in
+                                    ForEach(items.filter { isShown(item:$0) && $0.category == phase }, id: \.self) { item in
                                         
                                       NavigationLink(destination: DetailView(listItem: item)) {
                                           ChecklistRow(item: item)
@@ -105,51 +92,51 @@ struct ContentView: View {
                             } // Pre-Trip Section
                             .textCase(nil)
                             
-                            Section(header:
-                                HStack {
-                                    Text("Departure")
-                                    Spacer()
-                                    Text("(\(numDepartToGo()) of \(departItems.count) to go)")
-                            }) {
-
-                                if(departItems.count == 0) {
-                                    Text("No Depart items found")
-                                } else {
-                                    ForEach(departItems.filter { isShown(item:$0) }, id: \.self) { item in
-                                        
-                                      NavigationLink(destination: DetailView(listItem: item)) {
-                                          ChecklistRow(item: item)
-                                      }
-                                    }
-                                    .onMove(perform: onMove)
-                                    .onDelete(perform: onDelete)
-                                }
-
-                            } // Departure Section
-                            .textCase(nil)
-                            
-                            Section(header:
-                                HStack {
-                                    Text("Arrival")
-                                    Spacer()
-                                    Text("(\(numArriveToGo()) of \(arriveItems.count) to go)")
-                            }) {
-
-                                if(arriveItems.count == 0) {
-                                    Text("No Arrival items found")
-                                } else {
-                                    ForEach(arriveItems.filter { isShown(item:$0) }, id: \.self) { item in
-                                        
-                                      NavigationLink(destination: DetailView(listItem: item)) {
-                                          ChecklistRow(item: item)
-                                      }
-                                    }
-                                    .onMove(perform: onMove)
-                                    .onDelete(perform: onDelete)
-                                }
-
-                            } // Arrival Section
-                            .textCase(nil)
+//                            Section(header:
+//                                HStack {
+//                                    Text("Departure")
+//                                    Spacer()
+//                                    Text("(\(numDepartToGo()) of \(departItems.count) to go)")
+//                            }) {
+//
+//                                if(departItems.count == 0) {
+//                                    Text("No Depart items found")
+//                                } else {
+//                                    ForEach(departItems.filter { isShown(item:$0) }, id: \.self) { item in
+//
+//                                      NavigationLink(destination: DetailView(listItem: item)) {
+//                                          ChecklistRow(item: item)
+//                                      }
+//                                    }
+//                                    .onMove(perform: onMove)
+//                                    .onDelete(perform: onDelete)
+//                                }
+//
+//                            } // Departure Section
+//                            .textCase(nil)
+//
+//                            Section(header:
+//                                HStack {
+//                                    Text("Arrival")
+//                                    Spacer()
+//                                    Text("(\(numArriveToGo()) of \(arriveItems.count) to go)")
+//                            }) {
+//
+//                                if(arriveItems.count == 0) {
+//                                    Text("No Arrival items found")
+//                                } else {
+//                                    ForEach(arriveItems.filter { isShown(item:$0) }, id: \.self) { item in
+//
+//                                      NavigationLink(destination: DetailView(listItem: item)) {
+//                                          ChecklistRow(item: item)
+//                                      }
+//                                    }
+//                                    .onMove(perform: onMove)
+//                                    .onDelete(perform: onDelete)
+//                                }
+//
+//                            } // Arrival Section
+//                            .textCase(nil)
 
                         } // List
                         .padding(.top, -8)
@@ -216,24 +203,15 @@ struct ContentView: View {
         //items.move(fromOffsets: source, toOffset: destination)
     }
 
-    func numPreTripToGo() -> Int {
-        let total = preTripItems.count
-        let done = preTripItems.filter { $0.isDone }.count
-        return total - done
+    func numSelectedToGo() -> Int {
+        let done = items.filter { $0.category == phase && $0.isDone }.count
+        return numSelectedItems() - done
     }
     
-    func numDepartToGo() -> Int {
-        let total = departItems.count
-        let done = departItems.filter { $0.isDone }.count
-        return total - done
+    func numSelectedItems() -> Int {
+        return items.filter { $0.category == phase }.count
     }
     
-    func numArriveToGo() -> Int {
-        let total = arriveItems.count
-        let done = arriveItems.filter { $0.isDone }.count
-        return total - done
-    }
-
     func isShown(item: ChecklistItem) -> Bool {
         return showCompleted == true || item.isDone == false
     }
