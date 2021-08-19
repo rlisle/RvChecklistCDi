@@ -40,13 +40,13 @@ struct ContentView: View {
 
                 ZStack(alignment: .leading) {   // for sidemenu
                     
-                    Group { // Was below following VStack
+//                    Group { // Was below following VStack
                         // Side menu selected destinations
                         NavigationLink(destination: AddItem(),
                                        tag: "Add",
                                        selection: $menuSelection,
                                        label: { EmptyView() })
-                    }
+//                    }
 
                     VStack {
 
@@ -60,7 +60,8 @@ struct ContentView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         .padding(.bottom, 0)
-                        
+                        .background(Color.black)
+
                         // Checklist Section
                         List {
                             
@@ -91,51 +92,6 @@ struct ContentView: View {
                             } // Pre-Trip Section
                             .textCase(nil)
                             
-//                            Section(header:
-//                                HStack {
-//                                    Text("Departure")
-//                                    Spacer()
-//                                    Text("(\(numDepartToGo()) of \(departItems.count) to go)")
-//                            }) {
-//
-//                                if(departItems.count == 0) {
-//                                    Text("No Depart items found")
-//                                } else {
-//                                    ForEach(departItems.filter { isShown(item:$0) }, id: \.self) { item in
-//
-//                                      NavigationLink(destination: DetailView(listItem: item)) {
-//                                          ChecklistRow(item: item)
-//                                      }
-//                                    }
-//                                    .onMove(perform: onMove)
-//                                    .onDelete(perform: onDelete)
-//                                }
-//
-//                            } // Departure Section
-//                            .textCase(nil)
-//
-//                            Section(header:
-//                                HStack {
-//                                    Text("Arrival")
-//                                    Spacer()
-//                                    Text("(\(numArriveToGo()) of \(arriveItems.count) to go)")
-//                            }) {
-//
-//                                if(arriveItems.count == 0) {
-//                                    Text("No Arrival items found")
-//                                } else {
-//                                    ForEach(arriveItems.filter { isShown(item:$0) }, id: \.self) { item in
-//
-//                                      NavigationLink(destination: DetailView(listItem: item)) {
-//                                          ChecklistRow(item: item)
-//                                      }
-//                                    }
-//                                    .onMove(perform: onMove)
-//                                    .onDelete(perform: onDelete)
-//                                }
-//
-//                            } // Arrival Section
-//                            .textCase(nil)
 
                         } // List
                         .padding(.top, -8)
@@ -194,7 +150,7 @@ struct ContentView: View {
     
     init() {
         UISegmentedControl.appearance().backgroundColor = .black
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(red: 0.25, green: 1.0, blue: 0.25, alpha: 0.50)
+        UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
