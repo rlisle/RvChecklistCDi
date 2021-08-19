@@ -11,15 +11,14 @@ import CoreData
 struct ContentView: View {
     
     @State private var showCompleted = true
-    @State var showMenu = false
+    @State private var showMenu = false
     @State private var menuSelection: String? = nil
     @State private var phase = "Pre-Trip"
-    var phases = ["Pre-Trip", "Departure", "Arrival"]
+    private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
     @FetchRequest(
         entity: ChecklistItem.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \ChecklistItem.sequence, ascending: true)]
-//        predicate: NSPredicate(format: "category == %@", "Pre-Trip")
         )
     private var items: FetchedResults<ChecklistItem>
 
@@ -61,8 +60,6 @@ struct ContentView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         .padding(.bottom, 8)
-//                        .foregroundColor(.white)
-//                        .background(Color.black)
                         
                         // Checklist Section
                         List {
@@ -192,6 +189,13 @@ struct ContentView: View {
         
         
     } // Body
+    
+    init() {
+        UISegmentedControl.appearance().backgroundColor = .black
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(red: 0.25, green: 1.0, blue: 0.25, alpha: 0.50)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+    }
     
     private func onDelete(offsets: IndexSet) {
         print("onDelete")
