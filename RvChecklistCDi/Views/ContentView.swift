@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var showCompleted = true
     @State var showMenu = false
     @State private var menuSelection: String? = nil
+    @State private var phase = 0
 
     @FetchRequest(
         entity: ChecklistItem.entity(),
@@ -64,7 +65,18 @@ struct ContentView: View {
                     VStack {
 
                         HeaderView()
+                            .padding(.bottom, -8)
 
+                        Picker(selection: $phase, label: Text("Phase")) {
+                            Text("Pre-Trip").tag(0)
+                            Text("Depart").tag(1)
+                            Text("Arrive").tag(2)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.bottom, 8)
+//                        .foregroundColor(.white)
+//                        .background(Color.black)
+                        
                         // Checklist Sections
                         List {
                             
