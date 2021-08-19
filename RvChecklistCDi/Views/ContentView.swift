@@ -59,7 +59,7 @@ struct ContentView: View {
                             }
                         }
                         .pickerStyle(SegmentedPickerStyle())
-                        .padding(.bottom, 8)
+                        .padding(.bottom, 0)
                         
                         // Checklist Section
                         List {
@@ -69,7 +69,9 @@ struct ContentView: View {
                                     Text(phase)
                                     Spacer()
                                 Text("(\(numSelectedToGo()) of \(numSelectedItems()) to go)")
-                            }) {
+                                }
+                                .padding(.vertical, 8)
+                            ) {
                                 
                                 
                                 if(numSelectedItems() == 0) {
