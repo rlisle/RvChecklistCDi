@@ -10,6 +10,8 @@ import CoreData
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+
     @State private var showCompleted = true
     @State private var showMenu = false
     @State private var menuSelection: String? = nil
@@ -40,14 +42,14 @@ struct ContentView: View {
 
                 ZStack(alignment: .leading) {   // for sidemenu
                     
-//                    Group { // Was below following VStack
+                    Group {
                         // Side menu selected destinations
                         NavigationLink(destination: AddItem(),
                                        tag: "Add",
                                        selection: $menuSelection,
                                        label: { EmptyView() })
-//                    }
-
+                    }
+                    
                     VStack {
 
                         HeaderView()
@@ -161,8 +163,27 @@ struct ContentView: View {
     }
 
     private func onMove(source: IndexSet, destination: Int) {
-        print("onMove")
+        print("onMove: \(source) -> \(destination)")
+        //TODO: moving is accomplished by modifying the sequence numbers
+        
+        // 1st get a filtered list of all the items in this category
+        let list = items.filter { isShown(item:$0) && $0.category == phase }
+        
+        // Then sort by sequence
+        let sortedList = list.sorted(by: { $0.sequence < $1.sequence })
+        
+        // Then rewrite the sequence numbers
+        let savedDest = sortedList[0].sequence
+        sortedList[0].sequence = sortedList[1].sequence
+        sortedList[1].sequence = savedDest
+        
         //items.move(fromOffsets: source, toOffset: destination)
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            print("Error saving updated sequences: \(nsError), \(nsError.userInfo)")
+        }
     }
 
     func numSelectedToGo() -> Int {

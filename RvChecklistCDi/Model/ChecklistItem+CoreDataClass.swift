@@ -22,6 +22,14 @@ public class ChecklistItem: NSManagedObject, Decodable {
         case isDone
     }
 
+    public override var debugDescription: String {
+        "\(category ?? "No category").\(sequence): \(title ?? "No title"), \(isDone ? "Done" : "Undone")"
+    }
+
+    public override var description: String {
+        "\(category ?? "No category").\(sequence): \(title ?? "No title"), \(isDone ? "Done" : "Undone")"
+    }
+
     required convenience public init(from decoder: Decoder) throws {
         
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
