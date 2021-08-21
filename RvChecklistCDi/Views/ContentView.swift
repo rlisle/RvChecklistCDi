@@ -151,6 +151,7 @@ struct ContentView: View {
     } // Body
     
     init() {
+        print("ContentView init")
         UISegmentedControl.appearance().backgroundColor = .black
         UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
@@ -162,20 +163,33 @@ struct ContentView: View {
         //items.remove(atOffsets: offsets)
     }
 
+    // Maybe onMove is triggrering view redraw, stopping drag.
     private func onMove(source: IndexSet, destination: Int) {
         print("onMove: \(source) -> \(destination)")
+        print("startIndex: \(source.startIndex), endIndex: \(source.endIndex)")
         //TODO: moving is accomplished by modifying the sequence numbers
         
-        // 1st get a filtered list of all the items in this category
+//        // 1st get a filtered list of all the items in this category
+//        let list = items.filter { isShown(item:$0) && $0.category == phase }
+//
+//        // Then sort by sequence
+//        let sortedList = list.sorted(by: { $0.sequence < $1.sequence })
+//
+//        // Then rewrite the sequence numbers
+//        let savedDest = sortedList[0].sequence
+//        sortedList[0].sequence = sortedList[1].sequence
+//        sortedList[1].sequence = savedDest
+
+        // Method from post https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list
         let list = items.filter { isShown(item:$0) && $0.category == phase }
-        
-        // Then sort by sequence
-        let sortedList = list.sorted(by: { $0.sequence < $1.sequence })
-        
-        // Then rewrite the sequence numbers
-        let savedDest = sortedList[0].sequence
-        sortedList[0].sequence = sortedList[1].sequence
-        sortedList[1].sequence = savedDest
+        var revisedItems = list.sorted(by: { $0.sequence < $1.sequence })
+//        var revisedItems: [ChecklistItem] = items.map { $0 }
+        revisedItems.move(fromOffsets: source, toOffset: 0) //destination)
+        var index: Int16 = 1000    // TODO: may want to set different values for each category
+        for item in revisedItems {
+            item.sequence = index
+            index += 10
+        }
         
         //items.move(fromOffsets: source, toOffset: destination)
         do {
