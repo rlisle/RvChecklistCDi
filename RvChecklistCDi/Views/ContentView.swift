@@ -26,16 +26,6 @@ struct ContentView: View {
 
     var body: some View {
         
-        // Close side menu
-        let drag = DragGesture()
-            .onEnded {
-                if $0.translation.width < -100 {
-                    withAnimation {
-                        self.showMenu = false
-                    }
-                }
-            }
-
         NavigationView {
             
             GeometryReader { geometry in
@@ -105,15 +95,26 @@ struct ContentView: View {
                     .offset(x: self.showMenu ? geometry.size.width/2 : 0)
                     .disabled(self.showMenu ? true : false)
                     if self.showMenu {
+                        // Close side menu (This breaks onMove
+                        let drag = DragGesture()
+                            .onEnded {
+                                if $0.translation.width < -100 {
+                                    withAnimation {
+                                        self.showMenu = false
+                                    }
+                                }
+                            }
+
                         MenuView(showMenu: $showMenu,
                                  showCompleted: $showCompleted,
                                  selection: $menuSelection)
                             .frame(width: geometry.size.width/2)
                             .transition(.move(edge: .leading))
+                        .gesture(drag)
+
                     }
 
                 } // ZStack for sidemenu
-                .gesture(drag)
                 .blackNavigation
                 .navigationBarTitle("RV Checklist", displayMode: .inline)
                 .navigationBarItems(
@@ -169,22 +170,9 @@ struct ContentView: View {
         print("startIndex: \(source.startIndex), endIndex: \(source.endIndex)")
         //TODO: moving is accomplished by modifying the sequence numbers
         
-//        // 1st get a filtered list of all the items in this category
-//        let list = items.filter { isShown(item:$0) && $0.category == phase }
-//
-//        // Then sort by sequence
-//        let sortedList = list.sorted(by: { $0.sequence < $1.sequence })
-//
-//        // Then rewrite the sequence numbers
-//        let savedDest = sortedList[0].sequence
-//        sortedList[0].sequence = sortedList[1].sequence
-//        sortedList[1].sequence = savedDest
-
-        // Method from post https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list
         let list = items.filter { isShown(item:$0) && $0.category == phase }
         var revisedItems = list.sorted(by: { $0.sequence < $1.sequence })
-//        var revisedItems: [ChecklistItem] = items.map { $0 }
-        revisedItems.move(fromOffsets: source, toOffset: 0) //destination)
+        revisedItems.move(fromOffsets: source, toOffset: destination)
         var index: Int16 = 1000    // TODO: may want to set different values for each category
         for item in revisedItems {
             item.sequence = index
