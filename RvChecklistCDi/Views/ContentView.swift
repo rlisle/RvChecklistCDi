@@ -61,7 +61,7 @@ struct ContentView: View {
                                 HStack {
                                     Text(phase)
                                     Spacer()
-                                Text("(\(numSelectedToGo()) of \(numSelectedItems()) to go)")
+                                Text("(\(numSelectedDone()) of \(numSelectedItems()) done)")
                                 }
                                 .padding(.vertical, 8)
                             ) {
@@ -160,16 +160,15 @@ struct ContentView: View {
     }
     
     private func onDelete(offsets: IndexSet) {
-        print("onDelete")
-        //items.remove(atOffsets: offsets)
+        print("onDelete \(offsets)")
+        for index in offsets {
+            let item = items.filter { isShown(item:$0) && $0.category == phase }[index]
+            viewContext.delete(item)
+        }
     }
 
-    // Maybe onMove is triggrering view redraw, stopping drag.
+    // There's a bug that causes onMove to break if another gesture recognizer is attached.
     private func onMove(source: IndexSet, destination: Int) {
-        print("onMove: \(source) -> \(destination)")
-        print("startIndex: \(source.startIndex), endIndex: \(source.endIndex)")
-        //TODO: moving is accomplished by modifying the sequence numbers
-        
         let list = items.filter { isShown(item:$0) && $0.category == phase }
         var revisedItems = list.sorted(by: { $0.sequence < $1.sequence })
         revisedItems.move(fromOffsets: source, toOffset: destination)
@@ -178,8 +177,6 @@ struct ContentView: View {
             item.sequence = index
             index += 10
         }
-        
-        //items.move(fromOffsets: source, toOffset: destination)
         do {
             try viewContext.save()
         } catch {
@@ -188,9 +185,8 @@ struct ContentView: View {
         }
     }
 
-    func numSelectedToGo() -> Int {
-        let done = items.filter { $0.category == phase && $0.isDone }.count
-        return numSelectedItems() - done
+    func numSelectedDone() -> Int {
+        return items.filter { $0.category == phase && $0.isDone }.count
     }
     
     func numSelectedItems() -> Int {
