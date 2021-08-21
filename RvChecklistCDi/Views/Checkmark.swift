@@ -14,11 +14,14 @@ struct Checkmark: View {
     
     var body: some View {
 
-        Image(systemName: isDone ? "checkmark.square" : "square")
-            .contentShape(Rectangle())
-            .onTapGesture {
-                toggleIsDone()
-            }
+        ZStack {
+            Image(systemName: isDone ? "checkmark.square" : "square")
+                .foregroundColor(isDone ? .selectable : .black)
+                .contentShape(Rectangle())
+        }
+        .onTapGesture {
+            toggleIsDone()
+        }
     }
     
     func toggleIsDone() {
