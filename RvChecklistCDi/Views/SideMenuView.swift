@@ -24,15 +24,11 @@ struct MenuView: View {
                 
                 MenuRow(title: "Add Item", iconName: "plus", action: {
                     selection = "Add"
-                    withAnimation {
-                        showMenu = false
-                    }
+                    closeMenu()
                 })
                 MenuRow(title: "Uncheck All", iconName: "square", action: {
                     uncheckAll()
-                    withAnimation {
-                        showMenu = false
-                    }
+                    closeMenu()
                 })
                 .padding(.bottom, 60)
             }
@@ -41,9 +37,11 @@ struct MenuView: View {
                 
                 MenuRow(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
                     showCompleted.toggle()
-                    withAnimation {
-                        showMenu = false
-                    }
+                    closeMenu()
+                })
+                MenuRow(title: "Share", iconName:"square.and.arrow.up", action: {
+                    //TODO: send share invite
+                    closeMenu()
                 })
                 .padding(.bottom, 60)
             }
@@ -52,9 +50,7 @@ struct MenuView: View {
 
                 MenuRow(title: "Reset List", iconName: "clear", action: {
                     resetChecklist()
-                    withAnimation {
-                        showMenu = false
-                    }
+                    closeMenu()
                 })
             
             }
@@ -67,6 +63,12 @@ struct MenuView: View {
         .background(Color(red: 32/255, green: 32/255, blue: 32/255))
         .foregroundColor(.gray)
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    private func closeMenu() {
+        withAnimation {
+            showMenu = false
+        }
     }
     
     private func resetChecklist() {
